@@ -1,0 +1,228 @@
+.page-checkout {
+    fieldset {
+        border: none;
+    }
+    
+    label {
+        cursor: pointer;
+    }
+}
+
+/*
+ * Checkoutsteps
+ */
+
+#block-regiomino-cart-regiomino-checkout-steps {
+    
+   
+    #checkoutsteps {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+         
+        
+        li {
+            display: inline;
+            font-family: "Dosis", sans-serif;
+            font-size: $h2-size;
+            color: $paragraph-black-light;
+            padding-right:30px;
+            position: relative;
+            text-transform: uppercase;
+            
+            @include bp(mobile-ls) {
+                font-size: 14px;
+                padding-right:17px;
+            }
+            
+            @include bp(mobile-p) {
+                font-size: 12px;
+                padding-right:5px;
+            }
+            
+            
+            &:after {
+                position: absolute;
+                top: 3px;
+                right: 5px;
+                @include icon-font ("\e606",20px,$paragraph-black-light);
+                
+                @include bp(mobile-ls) {
+                    font-size: 16px;
+                    right: 0px;
+                    top: 3px;
+                }
+                
+                @include bp(mobile-p) {
+                    display: none;
+                }
+            }
+            
+            &:last-child:after {
+                display: none;
+            }
+            
+            .currentdesc {
+                font-size: 28px;
+                @include bp(mobile-ls) {
+                    font-size: 21px;
+                }
+                
+                @include bp(mobile-p) {
+                    font-size: 12px;
+                }
+                
+                color: $brand-red;
+            }
+            .currentstep {
+                color: $brand-green;
+            }
+        }
+    }
+}
+
+/*
+ * Zusammenfassung (Gesamtbetrag, Guthaben, noch z. zahlen)
+ */
+ .region-sidebar-left {
+    .block-regiomino-cart {
+        @include content-box();
+        
+        #checkoutinvoice {
+            width: 100%;
+            border-top: none;
+            margin:0;
+            padding:0;
+            border-collapse: collapse;
+            
+            tbody {
+                border-top: none;
+            }
+            
+            tr {
+                border-bottom: 1px solid $separator-grey;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+            
+         
+            td {
+                padding: 5px 0 5px 0;
+            }
+            
+            td.numbers {
+                text-align: right;
+                font-weight: 600;
+                font-size:14px;
+                white-space: nowrap;
+            }
+        }
+    }
+ }
+ 
+ #block-regiomino-cart-regiomino-checkout-invoice {
+    
+ }
+ 
+ /*
+ * Versand Lieferart
+ */
+ 
+ #regiomino-cart-shippinginfo-form {
+     @include content-box();
+     
+     select {
+        background-color: $white;
+     }
+      
+     
+     label {
+        height: 100%;
+        cursor: pointer;
+        
+     }
+     
+     .form-item-shipping {
+        border-bottom: 1px solid $separator-grey;
+        margin-bottom:10px;
+        
+     }
+     
+     #edit-submit {
+        margin-left:10px;
+     }
+     
+     .form-item-bringlivery,
+     .form-item-centralpickup {
+        padding: 10px;
+        background: shade($light-grey-hover,4%);
+    }
+     
+ }
+ 
+ /*
+ * Shipping
+ */
+#regiomino-cart-shippingaddressinfo-form {
+    @include content-box();
+    
+    #edit-submit {
+        margin-left:10px;
+     }
+      
+}
+
+#regiomino-cart-paymentinfo-form {
+     @include content-box();
+     #edit-submit {
+        margin-left:10px;
+     }
+}
+
+
+.page-checkout-verify {
+    .rm-table {
+        
+        thead th,
+        tbody td {
+            padding:7px;
+            @include bp(tablet-p) {
+                padding: 1px;
+            }
+        }
+        
+        thead h4 {
+            @include bp(tablet-p) {
+                font-size: 14px;
+                text-transform: none;
+            }
+        }
+        
+        tbody td.first_td {
+            
+            @include bp(desktop) {
+                div img {
+                    float:none;
+                }
+            }
+            
+            @include bp(tablet-p) {
+                text-align: center;
+                div img {
+                    float:none;
+                }
+            }
+        }
+        
+        tbody tr.summary td:last-child {
+            @include bp(tablet-p-neg) {
+                display: block;
+            }
+        }
+    }
+    
+    #edit-submit {
+        float: right;
+    }
+}

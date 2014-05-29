@@ -1,0 +1,14 @@
+.logo {
+    width:230px;
+    height:82px;
+    display: inline-block;
+    background: url(../images/logo.svg) no-repeat top left;
+    background-size: contain;
+    
+    .no-svg &,
+    .no-js & {
+        width:229px;
+        height:82px;
+        background-image: url(../images/logo.png);
+    }
+}

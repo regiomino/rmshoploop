@@ -1,0 +1,22 @@
+/*
+ * region-user-first
+ */
+    
+#block-menu-menu-work-menu {
+    float:left;
+    display:none;
+		
+		.no-js & {
+				display:block;
+				 a  {
+				 color: $footer-heading-white;
+				 }
+				}
+     
+    select {
+        margin-top: 5px;
+				
+				
+				
+    }
+}

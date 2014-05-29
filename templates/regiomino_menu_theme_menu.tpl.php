@@ -1,22 +1,42 @@
-<div class="menu-button">Menu</div>
+<div class="menu-button">Menü<span class="touch-button"></span></div>
 <nav> 
-    <ul class="flexnav">
+    <ul class="rmnav">
     <?php $count = 0; ?>
     <?php foreach($vars['menutree'] as $parenttid=>$parentdetails):
     $count++;
-    //if ($count <= 8) {
-        $isActive = ($parentdetails['active']) ? "active " : "";
+    
+        $hasChildren = (isset($parentdetails['children'])) ? "wSub " : "";
+       
     ?>
-        <li>
-                <a class="<?php print ($isActive); ?>" href="<?php echo $parentdetails['link']; ?>"><?php echo $parentdetails['title']; ?></a>
+        <li class="<?php print ($hasChildren); ?>">
+            
+                <a class="category-item" href="<?php echo $parentdetails['link']; ?>"><?php echo $parentdetails['title']; ?></a>
                 <?php if(isset($parentdetails['children'])): ?>
-                        <ul class="submenu">
+                    <span class="touch-button"></span>
+                 <?php endif; ?>
+                <?php if(isset($parentdetails['children'])): ?>
+                        <?php $amount = count($parentdetails['children']);
+                              $n = 1;
+                              $chunks = 5;
+                              $cols = ceil($amount / $chunks);
+                        ?>
+                        <div class="submenu-wrapper col-<?php echo $cols; ?> clearfix" data-chunks="<?php echo $chunks; ?>" data-cols="<?php echo $cols;?>">
+                            <div class="submenu-col"> 
                         <?php foreach($parentdetails['children'] as $childtid=>$childdetails): ?>
-                                <li><a href="<?php echo $childdetails['link']; ?>"><?php echo $childdetails['title']; ?></a></li>
+                                <a href="<?php echo $childdetails['link']; ?>"><?php echo $childdetails['title']; ?></a>
+                                <?php
+                                    if ($n % $chunks == 0 && $n < $amount) {
+                                        echo "</div><div class=\"submenu-col\">";
+                                    }
+                                    $n++;
+                                ?>
                         <?php endforeach; ?>
-                        </ul>
+                            </div> 
+                        </div>
                 <?php endif; ?>
+            
         </li>
+       
   <?php  // } ?>
     <?php endforeach; ?>
     </ul>

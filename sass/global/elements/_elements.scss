@@ -1,0 +1,246 @@
+/*
+ * General
+ */
+
+body {
+    position:relative;
+    font-family:'Open Sans', Arial, Tahoma, sans-serif;
+    font-size:$base-font-size;
+    font-weight:400;
+    color: $paragraph-black;
+     background: url('../images/back-pattern.gif') repeat;
+  // background: url("../images/backtest.JPG") no-repeat 131px 166px fixed #E9E9E9;
+}
+
+div.background {
+    width: 100%;
+    height: 100%;
+    
+     /*
+      background-image: url('../images/regiomino_textur4_ohne_weissraum.png');
+    background-repeat:no-repeat;
+   background-position: 112px 420px;
+   */
+   
+}
+
+.placeholder { /* ie */
+    color:$placeholder-grey;
+    font-size:$complementary-small;
+    text-transform: capitalize;
+}
+:-ms-placeholder { /* ie 10 */
+    color:$placeholder-grey;
+    font-size:$complementary-small;
+    text-transform: capitalize;
+}
+::-webkit-input-placeholder { /* webkits */
+    color:$placeholder-grey;
+    font-size:$complementary-small;
+    text-transform: capitalize;
+}
+:-moz-placeholder { /* mozilla */
+    color:$placeholder-grey;
+    font-size:$complementary-small;
+    text-transform: capitalize;
+}
+
+/*
+ * Mobile Hidden
+ */
+
+@include bp(tablet-p-neg) {
+    .mobile-hidden {
+        display: none;
+    }
+}
+ 
+/*
+ * Selection Style 
+ */
+
+::selection {
+    color: $white;
+    background: $brand-green;
+}
+::-moz-selection {
+    color: $white;
+    background: $brand-green;
+}
+
+/*
+ * Typography
+ */
+
+h1, h2, h3, h4, h5, h6 {
+    color: $heading-black;
+    font-family: "Dosis", sans-serif;
+    font-weight: 600; 
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: $h1-size;
+    color: $brand-green;
+    line-height: 33px;
+    margin-bottom:18px;
+    margin-top:0px;
+}
+
+h2 {
+    font-size: $h2-size;
+    margin:0 0 12px 0;
+    padding:0;
+}
+
+h3 {
+    font-size: $h3-size;
+    font-family: 'Open Sans', Arial, Tahoma, sans-serif;
+}
+
+h4 {
+    font-size: 16px;
+    margin:0 0 12px 0;
+
+    padding:0;
+}
+
+h5 {
+    font: 18px 'Open Sans', Arial, Tahoma, sans-serif;
+    font-weight:600;
+    color:#444;
+    margin:0 0 14px 0;
+    padding:0;
+    text-transform: uppercase;
+}
+
+h6 {
+    font:14px 'Open Sans', Arial, Tahoma, sans-serif;
+    font-weight:600;
+    color:#444;
+    margin:0 0 14px 0;
+    padding:0;
+    text-transform: uppercase;
+}
+
+ 
+p { 
+    margin: 0 0 12px 0;
+    padding: 0px;
+    color: $paragraph-black; 
+    font-weight: 400;
+    line-height: $base-line-height;
+}
+ 
+em {
+  font-family: 'Open Sans', Arial, Tahoma, sans-serif;
+  font-weight: 400italic;
+  font-style: normal;
+}
+
+strong {
+  font-family: 'Open Sans', Arial, Tahoma, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+} 
+ 
+small { font-size: 80%; }
+
+
+/*
+ * Links
+ */
+ 
+a,
+a:visited {
+    color: $paragraph-black;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: $brand-green;
+    outline: none;
+}
+ 
+a,
+a:before,
+a:after,
+button,
+h5,
+input {
+    @include transition(all .2s linear);
+}
+
+
+/*
+ * loading
+ */
+.loading {
+    width: 16px;
+    height: 16px;
+    background:url('../images/loader-white.gif') 0 0 no-repeat;
+    display: none;
+    @include center-x-y (-8px,-8px);
+}
+
+/*
+ * Tooltipster 
+ */
+
+/* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
+.rm-light {
+    border-radius: 2px; 
+    background: $white;
+    color: $paragraph-black;
+   box-shadow: 0px 0px 14px rgba(0,0,0,0.2);
+}
+
+/* Use this next selector to style things like font-size and line-height: */
+.rm-light .tooltipster-content {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 15px;
+        overflow: hidden;
+}
+
+/* This next selector defines the color of the border on the outside of the arrow. This will automatically match the color and size of the border set on the main tooltip styles. Set display: none; if you would like a border around the tooltip but no border around the arrow */
+.rm-light .tooltipster-arrow .tooltipster-arrow-border {
+	/* border-color: ... !important; */
+}
+
+
+/* If you're using the icon option, use this next selector to style them */
+.tooltipster-icon {
+	cursor: help;
+	margin-left: 4px;
+}
+
+iframe {display: block}
+
+
+.box-head {
+    padding: 0px 0px 5px 0px;
+    position: relative;
+    border-bottom: 1px solid $separator-grey;
+    margin: 0 0 20px 0;
+    
+    @include bp(tablet-p-neg) {
+            margin: 0 0 10px 0;
+        }
+    
+    h2 {
+        float:left;
+        font-size: 16px;
+        color:$heading-black;
+        margin:0;
+        line-height: 24px;
+        display: inline;
+        text-transform: uppercase;
+    }
+}
+ 

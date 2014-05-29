@@ -1,0 +1,47 @@
+/*
+ * region-branding-second
+ */
+.region-branding-second {
+            float: right;
+            display: inline-block;
+    
+        .block-regiomino-productranking {
+            position: relative;
+            
+            .form-item {
+                margin: 2px 0px 13px 0px;
+            }
+            
+            .form-submit {
+                position: absolute;
+                right:14px;
+                top: 11px;
+                background: sprite($sprite,search) no-repeat;
+                height: image-height(sprite-file($sprite,search));
+                width: image-width(sprite-file($sprite,search));
+                outline: none;
+                border: none;
+                padding:0;
+                transition: none;
+                
+                &:hover,
+                &:focus {
+                    background-position: sprite-position($sprite,search-hover);
+                }
+            }
+            
+            .form-text {
+                width:200px;
+                padding: 0px 40px 0 10px;
+                
+                @include bp(tablet-p-neg) {
+                    width: 100%;
+                }
+            }
+    }
+    
+    @include bp(tablet-p-neg) {
+            float: none;
+            width: 100%;
+    }
+}

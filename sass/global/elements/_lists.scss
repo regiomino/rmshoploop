@@ -1,0 +1,20 @@
+ul.benefit-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom:20px;
+    
+    li {
+        padding-left: 21px;
+        position: relative;
+        line-height: 15px;
+        margin-bottom: 7px;
+        color: $paragraph-black;
+    }
+    
+    li:before {
+        position: absolute;
+        @include icon-font("\e617", 14px, $brand-green);
+        left: 0px;
+        top:1px;
+    }
+}

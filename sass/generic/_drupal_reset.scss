@@ -1,0 +1,23 @@
+/*
+ * Drupal Resets
+ */
+
+ul li.leaf {
+    list-style-image: none;
+    list-style-type: none;
+}
+
+ul.menu li {
+    margin: 0px;
+}
+
+li.expanded,
+li.collapsed,
+li.leaf {
+    padding: 0px;
+    margin: 0;
+}
+
+.webform-component-textarea .grippie {
+    display: none;
+}

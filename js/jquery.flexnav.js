@@ -1,5 +1,5 @@
 (function($) {
-
+//martin was here
   $.fn.flexNav = function(options) {
     
     var $nav = $(this),
@@ -151,7 +151,7 @@
         }
         else {
             
-            adjustMenu(true);
+            //adjustMenu(true);
             adjustMenu(false);
     
             $nav.removeClass("sm-screen").addClass("lg-screen");

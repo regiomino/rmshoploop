@@ -24,11 +24,10 @@
     <script>
         (function ($) {
             
-            $(".flexnav").flexNav( {
-                'transitionOpacity':  true,
-                'hoverIntent' : true
+             $(".rmnav").rmNav( {
+                
              
-            });
+            }); 
             
         })(jQuery);
     </script>

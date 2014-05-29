@@ -1,0 +1,161 @@
+/*
+ * Forms
+ */
+
+/*
+input[type=search] {
+        -webkit-appearance: textfield;
+        -webkit-box-sizing: content-box;
+        font-family: inherit;
+        font-size: 100%;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    
+}
+*/
+
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset; }
+
+.form-item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+    .description {
+        font-size:12px;
+        color: $paragraph-black-light;
+        margin-top: 10px;
+    }
+}
+
+
+.form-item-mollom-captcha {
+    color: $paragraph-black-light;
+    
+    input[type="text"] {
+        width:100px;
+        display: block;
+    }
+    
+    .mollom-switch-captcha {
+        color: $brand-green;
+        
+    }
+}
+
+.form-required {
+    color: $brand-red;
+}
+
+label {
+    color: $paragraph-black;
+    margin-bottom:5px;
+    font-size:13px;
+    font-weight: 400;
+    display:block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+textarea {
+    @include box-sizing (border-box);
+    width: 100%;
+    padding:0px 10px;
+    height:37px;
+    color: $heading-black;
+    font-size:$form-font-size;
+    margin:0;
+    background: $white;
+    border:1px solid $separator-grey;
+    @include border-radius(2px);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"] {
+    .ie8 & {
+        line-height: 37px;
+    }
+}
+
+#regiomino-search-input-form input[type="text"] {
+    box-shadow: $search-form-boxshadow 0 0 0 4px;
+}
+
+input[readonly="readonly"] {
+    background: shade($white, 3.5%);
+    color: tint($black,5%);
+}
+
+textarea {
+    padding:5px 10px;
+    height:100px;
+}
+
+input[type="number"] {
+    width: 100px;
+}
+
+// hover, focus styles
+
+textarea,
+input[type="text"],
+input[type="email"] {
+    
+    &:hover  {
+        border: 1px solid  shade($separator-grey, 10%);
+    }
+    
+    &:focus {
+        outline: none;
+        border: 1px solid  shade($separator-grey, 25%);
+    }
+}
+.region-geolocentry select,
+.region-content select {
+        width: 100%;
+        height: 41px;
+        padding: 10px;
+        -webkit-appearance: none;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+         border-radius: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family:'Open Sans', Arial, Tahoma, sans-serif; 
+        -moz-background-clip: padding;
+        -webkit-background-clip: padding;
+        background-clip: padding-box;
+        background-color: #FFF;
+        border: 1px solid #C5C5C5;
+        outline: 0;
+    }
+    
+    @media (-webkit-min-device-pixel-ratio: 0) {
+            .region-geolocentry select,
+            .region-content select {
+                background:url('../images/select-arrow.gif') no-repeat;
+                background-position: right center;
+            }
+    }
+    
+.region-geolocentry select[disabled],
+.region-content select[disabled] {
+    border: 1px solid $box-border-grey;
+    color: #b4b4b4;
+}
+
+/*
+ * Form errors
+ */
+
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+    border: 2px solid $brand-red;
+}

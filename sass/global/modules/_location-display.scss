@@ -1,0 +1,113 @@
+/*
+ * region-branding-first
+ */
+.region-branding-first {
+    
+        float:right;
+        clear:right;
+        @include bp(tablet-p-neg) {
+            float:none;
+            clear:none;
+            text-align: center;
+        }
+    
+    .no-js & {
+        float:none;
+        clear: both;
+    }
+    
+    /*
+     *  block-regiomino-geolocation
+     */
+    .block-regiomino-geolocation {
+        
+        .no-js & {
+            top: -32px;
+            position: relative;
+        }
+        
+        .geolocation {
+                clear: both;
+                float: right;
+                position:relative;
+                padding-left: 44px;
+                left: 0px;
+                top: 0px;
+                font-weight: 600;
+                @include text-shadow(rgba(white, 0.5) 1px 1px 0);
+                
+                @include bp(tablet-p) {
+                    max-width:450px;
+                }
+                
+                @include bp(tablet-p-neg) {
+                    display: inline-block;
+                    left: auto;
+                    top: auto;
+                    clear: both;
+                    float: none;
+                    text-align: left;
+                }
+            
+            .no-js & {
+                margin-bottom: 20px;
+                 float: right;
+            }
+            
+            &:before {
+                position: absolute;
+                left: 6px;
+                top: 50%;
+                margin-top: -16px;
+                @include icon-font("\e600",32px,$brand-green);
+            }
+            
+            a {
+                color: $brand-green;
+                font-weight: 700;
+                position: relative;
+                margin-left: 4px;
+                padding-left: 21px;
+                border-left: 1px solid $separator-grey;
+                
+                &:before {
+                    @include icon-font ("\e612",15px,#5E5E5E);
+                    position: absolute;
+                    left:4px;
+                    top: 2px;
+                }
+            }
+            
+            #changeregiondialog {
+                display: none;
+            }
+        }
+        
+        .no-scriptalert {
+            background: $brand-red;
+            border: 1px solid $box-border-grey;
+            padding: 20px;
+            clear: both;
+           
+            h2,
+            p {
+                color:  $white;
+                 @include text-shadow(rgba($black, 0.5) 1px 1px 0);
+                
+                a {
+                    font-weight: 900;
+                    display: inline-block;
+                    color:tint($brand-green,5%);
+                    padding:10px;
+                    background-color: shade($brand-red, 10%);
+                    @include text-shadow(rgba($black, 0.2) 1px 1px 0);
+                    
+                    &:hover,
+                    &:active {
+                        background-color: shade($brand-red, 8%);
+                    }
+                }
+            }
+        }
+    }
+}

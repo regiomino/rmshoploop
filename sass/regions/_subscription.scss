@@ -1,0 +1,176 @@
+.page-subscription {
+    
+    
+    #edit-submit--4 {
+        float: right;
+        margin-top:10px;
+    }
+    
+    .rm-table { 
+        
+        tbody td.first_td  {
+        
+            
+            @include bp(tablet-p) {
+                padding-bottom: 0px;
+                div {
+                    text-align: center;
+                }
+            }
+        }
+        
+        td {
+            
+             h5 {
+          
+                @include bp(tablet-p) {
+                     margin-bottom: 0;
+                }
+            }
+            
+            .calendar {
+                width: auto;
+            }
+        }
+        
+        thead th,
+        tbody td {
+            padding: 8px;
+            
+            &.delete { 
+                @include bp(tablet-p-neg) {
+                    padding: 0;
+                }
+            }
+        }
+        
+        tbody td.delete {
+            padding: 0;
+        }
+        
+        thead {
+            @include bp(tablet-p) {
+                display: none;
+            }
+        }
+        
+        tbody {
+           
+            select {
+                
+                @include bp(tablet-p) {
+                    width: 40%;
+                }
+            }
+            
+            tr {
+                @include bp(tablet-p) {
+                    margin-bottom:12px;
+                    display: block;
+                    border:1px solid $box-border-grey;
+                }
+            }
+            
+            tr.summary td {
+                @include bp(tablet-p) {
+                  text-align: center;
+               }
+               
+                &.last {
+                    @include bp(desktop-neg) {
+                        display:none;
+                    }
+               }
+            }
+            
+            td {
+                @include bp(tablet-p) {
+                    display: block;
+                    border:none;
+                    padding: 10px 20px 15px 20px;
+                    text-align: left;
+                    border-top: 1px solid $separator-grey;
+                }
+                
+                &:before {
+                    @include bp(tablet-p) {
+                        display: inline-block;
+                        
+                    }
+                }
+            }
+
+            td.first_td {
+                @include bp(tablet-p) {
+                    border-top: none;
+                }
+            }
+            
+            p.calendar .redlabel {
+                display: none;
+            }
+            
+            td.pause,
+            td.unpause {
+                
+                font-size: 13px;
+                font-weight: 400;
+                
+                span {
+                    font-size: 16px;
+                    font-weight: 600;
+                    display: block;
+                }
+                
+                a {
+                    position: relative;
+                    color: #919191;
+                    
+                    &:hover,
+                    &:focus,
+                    &:hover:before,
+                    &:focus:before
+                    {
+                        color:$heading-black;
+                    }
+                }
+            }
+            
+            td.unpause {
+                
+                span {
+                    color: $brand-green;
+                }
+                
+                a  {
+                padding-left: 15px;
+                
+                    &:before {
+                        @include icon-font ("\e61e",9px,#919191);
+                        position: absolute;
+                        left: 3px;
+                        top: 6px;
+                    }
+                }
+            }
+            
+            td.pause {
+                
+                span {
+                    color: $brand-red;
+                }
+                
+                a {
+                    padding-left: 15px;
+                   
+                        &:before {
+                            @include icon-font ("\e61d",9px,#919191);
+                            position: absolute;
+                            left: 3px;
+                            top: 5px;
+                        }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.page-user-register {
+    .page-title {
+        display: none;
+    }
+    
+   .region-sidebar-left #block-block-11 {
+        @include content-box();
+    }
+    
+     .wrapper {
+        @include content-box();
+        
+        input[type="password"] {
+            width: 198px;
+        }
+     }
+     
+     
+}

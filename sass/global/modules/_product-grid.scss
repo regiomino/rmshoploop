@@ -1,0 +1,652 @@
+/*
+ * Product Grid
+ */
+.product-grid { 
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+
+    li {
+        @include box-sizing (border-box);
+        overflow: hidden;
+        margin-bottom:20px;
+        text-align:center;
+        border-bottom:1px solid $separator-grey;
+        float: left;
+        display: block;
+        position: relative;
+        overflow: visible;
+        @include transition(all .15s linear);
+         
+        .touch & {
+            background-color: $white;
+            
+            @include bp(tablet-p-neg) {
+                background: none;
+                box-shadow: none;
+            }
+            
+            @include box-shadow($box-border-grey 0px 3px 0px);
+            overflow: visible;
+            
+            a {
+                color: $brand-green;
+            }
+        }
+        
+        &:hover {
+            @include box-shadow($box-border-grey 0px 3px 0px);
+            background-color: $white;
+        }
+        @include bp(tablet-p-neg) {
+            &.column {
+                display: block;
+            }
+        }
+    }
+
+    li .img {
+        position:relative;
+        border:1px solid $box-border-grey;
+        display: block;
+        margin:0 0 14px 0;
+        overflow: hidden;
+        background-color:$black;
+        
+        .touch & {
+            background-color:$white;
+            border:none;
+            @include bp(mobile-ls-neg) {
+                padding:0px;
+            }
+        }
+        
+        a {
+            display: block;
+        }
+        
+        .ribbon-green {
+ 
+            position:absolute;
+            top:0;
+            left:0;
+            display: block;
+            z-index:200;
+            background: sprite($sprite,rabatt) no-repeat;
+            height: image-height(sprite-file($sprite,rabatt));
+            width: image-width(sprite-file($sprite,rabatt));
+ 
+            .touch & {
+                display:none;
+            }
+        }
+        
+        .image {
+            opacity: 1 ;
+        }
+        
+        .image img {
+            border:none;
+            width:100%;
+            display:block;
+        }
+        
+        .hover_buttons {
+            width: 100px;
+            height: 44px;
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
+            top: 50%;
+            opacity: 0;
+            
+            .touch & {
+                visibility: hidden;
+            }
+            z-index: 20;
+        }
+            
+        .hover_buttons a {
+            position:absolute;
+            margin-left:0;
+            display:block;
+            width:48px;
+            height:44px;
+            background-color:$brand-green;
+            top:0;
+            @include border-radius(2px);
+            @include text-shadow(rgba(black, 0.2) 1px 1px 0);
+
+             
+            &:hover,
+            &:focus {
+                background-color:$header-black;
+            }
+            
+            &.link {
+                left:0;
+            }
+            
+            &.link:before {
+                @include center-x-y (-12px,-12px);
+                @include icon-font("\e61c", 24px, $white);
+                
+            }
+            
+            &.link:after {
+                content: "Details";
+                text-transform: uppercase;
+                color: $white;
+                position: absolute;
+                font-family: 'Dosis';
+                top:-18px;
+                left:3px;
+                display: none;
+                font-size:12px;
+            }
+            
+             &.link:hover:after {
+                display: block;
+            }
+        
+            &.cart {
+                right:  0px;
+            }
+            
+            &.cart:before {
+                @include center-x-y (-12px,-12px);
+                @include icon-font("\e613", 24px, $white);
+            }
+            
+            &.cart:after {
+                content: "in den warenkorb";
+                text-transform: uppercase;
+                color: $white;
+                position: absolute;
+                font-family: 'Dosis';
+                top:-28px;
+                left:3px;
+                line-height: 12px;
+                text-align: left;
+                display: none;
+                font-size:12px;
+            }
+            
+            &.cart:hover:after {
+                display: block;
+            }
+            
+            &.cart.hide-icon {
+                background-color:$header-black;
+                .loading {
+                    display:block;
+                }
+                
+                &:before {
+                    display: none;
+                }
+            }
+            
+            &.cart.confirm {
+                background-color:$header-black;
+                cursor: text;
+                &:before {
+                    @include center-x-y (-12px,-12px);
+                    @include icon-font("\e615", 24px, $brand-green);
+                }
+                
+                &:after {
+                    content: "Produkt im Warenkorb";
+                    display: block!important;
+                }
+            } 
+        }
+        .hover_buttons span.disabled {
+            position:absolute;
+            margin-left:0;
+            right:  0px;
+            display:block;
+            width:46px;
+            height:42px;
+            cursor: text;
+            border: 1px solid shade($white,15%);
+            top:0;
+            @include border-radius(2px);
+              
+            &.cart {
+                 
+                &:before {
+                    @include center-x-y (-12px,-12px);
+                    @include icon-font("\e614", 24px, shade($white,15%));
+                }
+                
+                &:after {
+                    top:-25px;
+                    left:1px;
+                    text-transform: uppercase;
+                    content: 'Bestellfrist abgelaufen';
+                    position: absolute;
+                    font-family: 'Dosis';
+                    font-size: 10px;
+                    line-height: 10px;
+                    color: shade($white,15%);
+                    font-weight: 600 ;
+                }
+            }
+        }
+    }
+    
+    li .touch-button-wrapper {
+        width:90px;
+        height: 40px;
+        position: absolute;
+        right: -5px;
+        bottom: -3px;
+        display:none;
+        
+       .touch & {
+            display: block;
+        }
+        @include bp(tablet-p-neg) {
+            margin-right: 0px;
+            right: 0px;
+            bottom: 5px;
+        }
+    
+    
+      .touch-button {
+            background: $header-black;
+            width:43px;
+            display: inline-block;
+            height:43px;
+            @include border-radius(4px);
+            position: absolute;
+            top:0;
+            border-bottom: 3px solid tint($black,16%);
+            @include transition(all .15s linear);
+        }
+    
+        .touch-link {
+            right: 50px;
+        }
+                
+        .touch-cart {
+            right: 0;
+        }
+   
+        .touch-cart:before {
+            @include icon-font ("\e613",22px,$white);
+            @include center-x-y (-11px,-11px);
+            @include text-shadow(rgba($black, 0.4) 1px 1px 0);
+        }
+        
+        .touch-cart.confirm {
+                background-color:$header-black;
+                &:before {
+                    @include center-x-y (-12px,-12px);
+                    @include icon-font("\e615", 24px, $brand-green);
+                }
+        }
+    
+        .touch-cart.hide-icon {
+            .loading {
+                display: block;
+            }
+        
+            &:before {
+                display: none;
+            }
+        }
+        
+        .touch-cart.disabled {
+            top:3px;
+            width:38px;
+            display: inline-block;
+            height:38px;
+            @include border-radius(2px);
+            position: absolute;
+            border: 1px solid tint($header-black, 60%);
+        }
+        
+        .touch-cart.disabled:before {
+            color: tint($header-black, 40%);
+            content: "\e614";
+            text-shadow: none;
+             
+        }
+        
+        .disabled-info {
+            position: absolute;
+            top: 9px;
+            right: 63px;
+            text-transform: uppercase;
+            text-align: left;
+            font-size:10px;
+            color: tint($header-black, 60%);
+            font-weight: 600 ;
+            width: 42px;
+            font-family: 'Dosis';
+            
+            
+        }
+    
+        .touch-link:before {
+            @include icon-font ("\e61c",18px,$white);
+            @include center-x-y (-9px,-9px);
+        }
+    }
+    
+    li:hover h6 a,
+    li:focus h6 a {
+        color: $brand-green;
+    }
+    
+    h5 {
+        color: $heading-black;
+        margin-bottom: 0px;
+    }
+      
+    h5 .sale_offer {
+        color:#999;
+        text-decoration: line-through;
+    }
+    
+    h6 {
+        margin-bottom: 0px;
+    }
+    
+    p.baseprice {
+        line-height: 16px;
+        font-size:10px;
+        text-align: center;
+        @include bp(tablet-p-neg) {
+            text-align: left;
+        }
+        color: $paragraph-black-light
+    }
+    
+    .category-tooltip {
+        display: none;
+    }  
+}
+ 
+
+.product-grid-16 {
+    
+    li {
+        width: 200px;
+        height: 330px;
+        
+        .touch & {
+            height: 352px;
+        }
+        
+        @include bp(desktop) {
+            width: 215px;
+        }
+        
+        @include bp(tablet-p) {
+            height: 269px;
+            width: 167px;
+            .touch & {
+                height: 310px;
+            }
+        }
+    }
+    
+    h5 {
+        font-size: 18px;
+        
+        @include bp(desktop-neg) {
+            font-size: 14px;
+        }
+    }
+    
+    h6 {
+        
+        @include bp(desktop-neg) {
+            font-size: 12px;
+        }
+        
+        @include bp(mobile-ls) {
+            font-size: 14px;
+        }
+    }
+}
+
+
+.product-grid-12 {
+    
+    li {
+        height: 303px;
+        width: 185px;
+        
+        .touch & {
+            height: 333px;
+        }
+        
+        @include bp(desktop) {
+            width: 155px;
+            height: 285px;
+            .touch & {
+                height: 318px;
+            }
+        }
+        
+        @include bp(tablet-p) {
+            width: 165px;
+            height: 288px;
+            
+            .touch & {
+                height: 325px;
+            }
+        }
+        
+        h6 {
+            font-size: 12px;
+            padding: 2px;
+            
+            @include bp(desktop-neg) {
+                padding: 0px;
+            }
+        }
+    }
+}
+
+.product-grid-16,
+.product-grid-12 {
+    
+    li {
+        @include bp(tablet-p-neg) {
+            width: 100%;
+            float: none;
+            padding-bottom:15px;
+            overflow: visible;
+            height: auto !important;
+            margin-bottom: 0px;
+            margin-right: 0;
+            padding-top:15px;
+            text-align: left;
+            border-bottom: none;
+            border-top: 1px solid $separator-grey;
+            position: relative;
+            @include box-sizing (border-box);
+            
+             &:first-child {
+                border-top: 1px solid $separator-grey;
+            }
+            
+            .img {
+                float: left;
+                margin-right: 10px;
+                margin-bottom: 0px;
+                width: 90px;
+                border: none;
+                left:0px;
+            }
+            
+            .hover_over .hover_buttons {
+                
+                a {
+                    width: 36px;
+                    height: 31px;
+                    
+                    &.link {
+                        left:9px;
+                    }
+                    
+                    &.cart {
+                        right:9px;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+
+.tooltipster-content { 
+        .category-tooltip {
+                    
+            p.no-delivery {
+               margin-bottom: 0px;
+               line-height: 14px;
+               font-size:12px;
+               color: $paragraph-black;
+            }
+           .spot
+            {
+               line-height: 16px;
+               margin-bottom: 0px;
+               font-size:$complementary-small;
+               display: block;
+           }
+           
+           .col-100 {
+                @include box-sizing (border-box);
+                position: relative;
+                margin-top:0px;
+                width: 100%;
+                border-bottom: 1px dashed $dashed-separator-grey;
+           }
+           
+           .delivery,
+           .pick-up {
+               padding-top:9px;
+               padding-bottom:5px;
+           }
+           
+           .productseller,
+           .location,
+           .labels,
+             {
+               padding-top:5px;
+               padding-bottom:5px;
+           }
+           
+           .day {
+               font-size:18px;
+               font-weight: 600;
+           }
+           
+           .time {
+                font-size: $complementary-small;
+                font-weight:600;
+                color: $paragraph-black;
+                padding: 0px 1px;
+                background: $date-background;
+                @include border-radius(3px);
+                margin-left: 2px;
+           }
+           
+           .expiry {
+                padding-left:28px;
+                border-right: none;
+                padding-bottom: 5px;
+                
+                .day {
+                    color: $brand-red;
+                }
+               
+               &:before {
+                    @include icon-font ("\e619",19px,$paragraph-black);
+                    position: absolute;
+                    font-size: 19px;
+                    top: -2px;
+                    left: 0px;
+               }
+           }
+           
+           .delivery {
+               padding-left:28px;
+               
+               .day {
+                    color: $brand-green;
+                }
+               
+               &:before {
+                    @include icon-font ("\e60a",18px,$paragraph-black);
+                    position: absolute;
+                    left:0px;
+                    top: 7px;
+               }
+            }
+           
+           .pick-up {
+               
+               padding-left:28px;
+               
+               &:before {
+                    position: absolute;
+                    @include icon-font ("\e61a",16px,$paragraph-black);
+                    left:0px;
+                    top: 9px;
+                }
+                
+                .day {
+                    color: $brand-green;
+                }
+           }
+           
+           .labels {
+               a {
+                   font-size: $complementary-small;
+                   color: $paragraph-black-light;
+                   border-right: 1px solid $separator-grey;
+                   padding-right: 5px;
+                   
+                   &:last-child {
+                       border-right:none;
+                   }
+               }
+           }
+           
+           .productseller {
+                 p {
+                   font-size: $complementary-small;
+                   color: $paragraph-black-light;
+                   line-height: 16px;
+                   margin-bottom: 0px;
+                 }
+                a {
+                   color: $paragraph-black-light;
+                   font-weight: 900;
+               }
+           }
+           
+           .location {
+               border-bottom: none;
+               padding-bottom: 0px;
+               p {
+                   font-size: $complementary-small;
+                   color: $paragraph-black-light;
+                    line-height: 16px;
+                   margin-bottom: 0px;
+               }
+           }
+    }
+}

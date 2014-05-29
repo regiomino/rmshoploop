@@ -1,0 +1,117 @@
+/*
+ * Slider 
+ */
+
+.slider-wrapper {
+    margin: 0;
+    margin-bottom: 26px;   
+    position: relative;
+    
+    &:before,
+    &:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 12px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width: 444px;
+        @include bp(tablet-p) {
+            bottom: 16px;
+        }
+        @include bp(tablet-p-neg) {
+            display: none;
+        }
+        @include transform(rotate(-2deg));
+        @include box-shadow(rgba($black, 0.25) 0 15px 13px 0);
+    }
+    
+    &:after {
+        @include transform(rotate(2deg));
+        right: 10px;
+        left: auto;
+    }
+    
+    @include bp(tablet-p-neg) {
+        margin-bottom: 29px;
+    }
+    
+    .slider { 
+        padding: 0;
+        background: $white;
+        border: 1px solid $box-border-grey;
+        position: relative;
+        min-height: 386px;
+        
+        @include bp(desktop-neg) {
+        min-height: 315px;
+    }
+        
+        @include box-sizing (border-box);
+ 
+        .slide-img {
+            float:right;
+            @include bp(tablet-p) {
+                width: 50%;
+            }
+            padding: 20px;
+            border-left:1px solid $box-border-grey;
+            text-align:center;
+            position: relative;
+            
+             @include bp(tablet-p-neg) {
+                width: 100%;
+                padding: 0;
+            }
+            
+            img {
+                display: block;
+                height:auto;
+                margin: 0 auto;
+                border:none;
+                max-width: 100%;
+            }
+            
+            .no-js & {
+                .rsImg {
+                    display: none;
+                }
+            }
+        }
+
+        .flex-caption {
+            
+            float:left;
+            width: 49%;
+            padding:30px 20px 20px 20px;
+            
+            strong a {
+                color: $brand-green;
+            }
+            
+            @include bp(desktop-large) {
+                p {
+                    font-size: 14px;
+                    line-height: 21px;
+                }
+            }
+            
+            @include bp(desktop) {
+                width:40%;
+            }
+            
+            @include bp(tablet-p) {
+                width: 39%;
+                padding-bottom: 0px;
+            }
+            @include bp(tablet-p-neg) {
+                width: 100%;
+                padding: 17px 0 0 0;
+            }
+        }
+    }
+        
+    .rsDefault.rsHor .rsArrowLeft { left: -23px; top: 0; }
+    .rsDefault.rsHor .rsArrowRight { right: -23px; top:0; }
+}

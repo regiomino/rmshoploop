@@ -1,0 +1,43 @@
+/*
+ * Header
+ */
+
+#topHeader {
+    width:100%;
+    background: $header-black;
+    border-bottom: 3px solid $brand-green;
+}
+
+#middleHeader {
+    padding: 15px 0px 15px 0;
+    .no-js & {
+        padding: 15px 0px 0px 0;
+    }
+    .logo-wrapper {
+        float:left;
+        
+        @include bp(tablet-p-neg) {
+            width: 100%;
+            text-align: center;
+        }
+    }   
+}
+
+
+ 
+footer {
+    margin: 60px 0px 0px 0px;
+    padding: 30px 0px 30px;
+    background: $header-black;
+    border-top: 2px solid $brand-green;
+}
+
+
+/*
+ * no-js
+ */
+
+.no-js #mainNav {
+    height: auto;
+}
+

@@ -23,9 +23,10 @@ regions[footer_legal] = Footer Legal
 regions[geolocentry] = Geolocation Entry
 
 scripts[] = js/modernizr.custom.js
-scripts[] = js/jquery.hoverIntent.minified.js
-scripts[] = js/jquery.flexnav.js
-scripts[] = js/jquery.tooltipster.min.js
 scripts[] = js/main.js
+scripts[] = js/jquery.hoverIntent.minified.js
+scripts[] = js/jquery.rmNav.js
+scripts[] = js/jquery.tooltipster.min.js
+
 
 

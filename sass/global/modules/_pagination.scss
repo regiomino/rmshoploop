@@ -1,0 +1,140 @@
+/*
+ * Pagination
+ */
+
+.pagination {
+    
+    .pager {
+        li {
+            display: inline-block;
+            padding: 0;
+            margin: 0 0 10px 5px;
+            
+            a,
+            &.pager-current {
+                display: inline-block;
+                border:1px solid $mainNav-border;
+                background: $mainNav-gradient-start;
+                background: -moz-linear-gradient(top, $mainNav-gradient-start 0%, $mainNav-gradient-end 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$mainNav-gradient-start), color-stop(100%,$mainNav-gradient-end));
+                background: -webkit-linear-gradient(top, $mainNav-gradient-start 0%,$mainNav-gradient-end 100%);
+                background: -o-linear-gradient(top, $mainNav-gradient-start 0%,$mainNav-gradient-end 100%);
+                background: -ms-linear-gradient(top, $mainNav-gradient-start 0%,$mainNav-gradient-end 100%);
+                background: linear-gradient(to bottom, $mainNav-gradient-start 0%,$mainNav-gradient-end 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#f3f3f3',GradientType=0 );
+                @include border-radius(3px);
+                @include box-shadow($mainNav-boxshadow 0 2px 2px);
+                padding: 4px 8px;
+                transition: none;
+            }
+            
+            a:hover,
+            a:focus {
+                background: $white;
+                color:$heading-black;
+            }
+            
+            a:active {
+                background: #F1F1F1;
+            }
+            
+            &.pager-current {
+                background: #F7F7F7;
+                border: 1px solid #BBB;
+                -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.25),0 1px 0 #FFF;
+                box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.25),0 1px 0 #FFF;
+            }
+        }
+    }
+    /*float: right;
+    @include bp(tablet-p-neg) {
+            float: none;
+        }
+    
+    span {
+        font-size: $base-font-size;
+        color: $heading-black;
+        margin-left:3px;
+        @include bp(tablet-p-neg) {
+             margin-left:0px;
+             margin-right: 3px;
+        }
+        
+    }
+    .status {
+        float: left;
+        margin-right:5px;
+        padding-top: 4px;
+        @include bp(tablet-p-neg) {
+            display: none;
+        }
+    }
+    .dots {
+        float:left;
+    }
+    
+    a {
+        font-weight: 600;
+        padding: 4px 10px;
+        position: relative;
+        background: $header-black;
+        @include border-radius(2px);
+        color: $white;
+        margin-left:3px;
+        @include bp(tablet-p-neg) {
+             margin-left:0px;
+             margin-right: 3px;
+        }
+        float: left;
+        
+        
+        &.currentPage {
+            background: $brand-green;
+            color: $white;
+        }
+        
+        &:hover,
+        &:focus {
+            background: $brand-green;
+            color: $white;
+        }
+    }
+    
+    .prev,
+    .next {
+        width: 27px;
+        height: 26px;
+        padding: 0;
+        position: relative;
+        display: inline-block;
+      
+        &:before {
+            font-family: 'icons';
+            position: absolute;
+            color: $white;
+            font-size: 18px;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            @include center-x-y (-9px,-9px);
+        }
+    }
+    
+    .prev:before {
+        content: "\e60b";
+    }
+    
+    .next:before {
+        content: "\e606";
+    }
+    
+    .status {
+        color: $heading-black;
+    }
+    */
+}

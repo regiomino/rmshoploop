@@ -1,0 +1,48 @@
+/*
+ * Buttons
+ */
+
+input[type="submit"] {
+    //@include sassy-button(gradient-style, border-radius, font-size, first-color, second-color, text-color, text-style, auto-states)
+ 
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+/*
+ * red
+ */
+
+.productcall2action #edit-submit--4,
+#edit-continue--2,
+#regiomino-cart-shippinginfo-form input[type="submit"],
+#regiomino-cart-shippingaddressinfo-form input[type="submit"],
+#regiomino-cart-paymentinfo-form input[type="submit"],
+.page-checkout-verify #edit-submit,
+a.button {
+    @include sassy-button("simple", 4px, 13px, $red-button-gradient-start, $red-button-gradient-end, $button-white, "none");
+    @include text-shadow($red-button-text-shadow 1px 1px 0);
+    text-transform: uppercase;
+}
+
+/*
+ * green
+ */
+
+.productcontact input[type="submit"],
+.page-user-register .form-submit,
+#block-webform-client-block-1188 input[type="submit"],
+#edit-submit--4,
+#block-regiomino-cart-regiomino-checkout-coupon input[type="submit"],
+.popup-wrapper input[type="submit"],
+a.highlightbutton {
+    @include sassy-button("simple", 4px, 13px, $green-button-gradient-start, $green-button-gradient-end, $button-white, "none");
+     text-transform: uppercase;
+     @include text-shadow($green-button-text-shadow 1px 1px 0);
+ 
+}
+
+
+/*
+ * grey
+ */
