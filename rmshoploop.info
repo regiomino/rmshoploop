@@ -1,0 +1,31 @@
+name = RM Shop Loop
+description = Regiomino theme based on shop loop html template
+core = 7.x
+ 
+stylesheets[all][] = css/style.css
+ 
+regions[user_first] = User First
+regions[user_second] = User Second
+regions[branding_first] = Branding First
+regions[branding_second] = Branding Second
+regions[menu_first] = Menu First
+regions[menu_second] = Menu Second
+regions[breadcrumbs] = Breadcrumbs
+regions[preface] = Preface
+regions[sidebar_left] = Sidebar Left
+regions[sidebar_right] = Sidebar Right
+regions[highlight] = Highlight
+regions[content] = Content
+regions[postscript] = Postscript
+regions[footer_menu] = Footer Menu
+regions[footer_bar] = Footer Bar
+regions[footer_legal] = Footer Legal
+regions[geolocentry] = Geolocation Entry
+
+scripts[] = js/modernizr.custom.js
+scripts[] = js/jquery.hoverIntent.minified.js
+scripts[] = js/jquery.flexnav.js
+scripts[] = js/jquery.tooltipster.min.js
+scripts[] = js/main.js
+
+

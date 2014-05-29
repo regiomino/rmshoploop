@@ -1,0 +1,1 @@
+<div class="carttext"><a href="/cart"><p><span class="title"><?php echo t('Cart'); ?></span><span class="sum"><?php echo $vars['carttext']; ?></span></p></a></div>
