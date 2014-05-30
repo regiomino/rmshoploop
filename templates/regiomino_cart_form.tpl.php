@@ -4,37 +4,38 @@ $form = drupal_get_form('regiomino_cart_form');
  * $form enthält jetzt alle Formular-Elemente des Warenkorbs, also pro Produkt "Anzahl" und "Bestellfrequenz" sowie die beiden Buttons "Aktualisieren" und "Zur Kasse"
  */
 $products = array();
-foreach($form['regiomino_cart']['cart_contents'] as $key => $value) {
-	$tmp = explode('amount', $key);
-	if(isset($tmp[1])) {
-		$fci = field_collection_item_load($tmp[1]);
-		$offerobject = node_load($fci->field_offer[LANGUAGE_NONE][0]['target_id']);
-		$selleruser = user_load($offerobject->uid);
-		$productimage = array(
-			'style_name' => 'thumbnail_cart',
-			'path' => $offerobject->field_image[LANGUAGE_NONE][0]['uri'],
-			'width' => '',
-			'height' => '',
-			'alt' => $offerobject->field_image[LANGUAGE_NONE][0]['alt'],
-			'title' => $offerobject->field_image[LANGUAGE_NONE][0]['title'],
-			'attributes' => array('class' => 'productimage'),
-		);
-		$products[$selleruser->field_profilereference[LANGUAGE_NONE][0]['target_id']][] = array(
-			'product_title' => $offerobject->title,
-			'product_id' => $offerobject->nid,
-			'product_sellertitle' => $sellerprofile->title,
-			'product_image' => theme('image_style',$productimage),
-			//'product_price' => regiomino_offer_get_discountedprice($offerobject, FALSE, TRUE),
-			'product_price' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_gross') / $fci->field_amount[LANGUAGE_NONE][0]['value'],
-			'product_total' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_gross'),
-			'product_total_vat' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_vat'),
-			'product_tax' => $offerobject->field_salestax[LANGUAGE_NONE][0]['value'],
-			'product_unit_first' => $offerobject->field_packingunit[LANGUAGE_NONE][0]['first'],
-			'product_unit_second' => $offerobject->field_packingunit[LANGUAGE_NONE][0]['second'],
-			'product_amount' => $fci->field_amount[LANGUAGE_NONE][0]['value'],
-			'remove_link' => l(t('Remove'), 'cart/remove/' . $tmp[1], array('attributes' => array('class' => 'remove'))),
-			'fci' => $tmp[1],
-		);
+if(isset($form['regiomino_cart']) && !empty($form['regiomino_cart'])) {
+	foreach($form['regiomino_cart']['cart_contents'] as $key => $value) {
+		$tmp = explode('amount', $key);
+		if(isset($tmp[1])) {
+			$fci = field_collection_item_load($tmp[1]);
+			$offerobject = node_load($fci->field_offer[LANGUAGE_NONE][0]['target_id']);
+			$selleruser = user_load($offerobject->uid);
+			$productimage = array(
+				'style_name' => 'thumbnail_cart',
+				'path' => $offerobject->field_image[LANGUAGE_NONE][0]['uri'],
+				'width' => '',
+				'height' => '',
+				'alt' => $offerobject->field_image[LANGUAGE_NONE][0]['alt'],
+				'title' => $offerobject->field_image[LANGUAGE_NONE][0]['title'],
+				'attributes' => array('class' => 'productimage'),
+			);
+			$products[$selleruser->field_profilereference[LANGUAGE_NONE][0]['target_id']][] = array(
+				'product_title' => $offerobject->title,
+				'product_id' => $offerobject->nid,
+				'product_image' => theme('image_style',$productimage),
+				//'product_price' => regiomino_offer_get_discountedprice($offerobject, FALSE, TRUE),
+				'product_price' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_gross') / $fci->field_amount[LANGUAGE_NONE][0]['value'],
+				'product_total' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_gross'),
+				'product_total_vat' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_vat'),
+				'product_tax' => $offerobject->field_salestax[LANGUAGE_NONE][0]['value'],
+				'product_unit_first' => $offerobject->field_packingunit[LANGUAGE_NONE][0]['first'],
+				'product_unit_second' => $offerobject->field_packingunit[LANGUAGE_NONE][0]['second'],
+				'product_amount' => $fci->field_amount[LANGUAGE_NONE][0]['value'],
+				'remove_link' => l(t('Remove'), 'cart/remove/' . $tmp[1], array('attributes' => array('class' => 'remove'))),
+				'fci' => $tmp[1],
+			);
+		}
 	}
 }
 ksort($products);

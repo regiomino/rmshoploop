@@ -101,7 +101,7 @@
             
             <?php else: ?>
                 <p class="availability"> 
-                    <?php// echo t('Availability'); ?> 
+                    <?php //echo t('Availability'); ?> 
                     <?php echo t('This product will <strong>not be available</strong> anymore after its expiry'); ?>
                 </p>
             <?php endif; ?>
