@@ -7,7 +7,7 @@ function rmshoploop_preprocess_image(&$variables) {
 }
 
 function rmshoploop_preprocess_regiomino_featureslider_theme_featureslider(&$variables) {
-    //drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.unveil.min.js');
+    drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.unveil.min.js');
     drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.ajaxcart.js');
     drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/productgrid.js');
 }
@@ -31,8 +31,6 @@ function rmshoploop_preprocess_regiomino_productranking_theme_category(&$variabl
 }
 
 function rmshoploop_preprocess_regiomino_geolocation_theme_request(&$variables) {
-  /*drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.fitvids.js');
-  drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.rmtabs.js');*/
   drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.royalslider.custom.min.js');
   drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/popup.js');
 }

@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-   
+   $('.product-grid img').unveil();
     $('.cart').add('.touch-cart').ajaxcart();
     
 /*
