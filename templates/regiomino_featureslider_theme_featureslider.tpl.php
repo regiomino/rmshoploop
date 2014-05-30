@@ -79,7 +79,7 @@
                             <?php  if(empty($productinfo->shipping['begin']) || !$productinfo->availableforselection): ?>
                                 <a href="" class="touch-button touch-cart" data-id ="<?php echo $product['id'];?>"><span class="loading"></span>  </a>
                              <?php endif;?>  
-                               <!-- <a class="touch-button touch-link" href="<?php echo url('node/' . $productinfo->nid); ?>">  </a>-->
+                               <!-- <a class="touch-button touch-link" href="<?php //echo url('node/' . $productinfo->nid); ?>">  </a>-->
                     </div>
                 </li>
                      
