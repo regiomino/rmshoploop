@@ -15,6 +15,9 @@ jQuery(document).ready(function($) {
     usePreloader: true,
     sliderDrag : true,
     navigateByClick : false,
+    video : { 
+        youTubeCode : '<iframe src="https://www.youtube.com/embed/%id%?rel=0&autoplay=1&showinfo=0" frameborder="no"></iframe>'
+    }
   });
   
    var slider = $('#tabContent');
