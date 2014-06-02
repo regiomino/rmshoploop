@@ -24,10 +24,10 @@ function rmshoploop_preprocess_regiomino_featureslider_theme_highlightslider(&$v
 }
 
 function rmshoploop_preprocess_regiomino_productranking_theme_category(&$variables) {
-  drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.cycle2.min.js');
-  drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/category.js');
-   drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.ajaxcart.js');
-  drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/productgrid.js');
+    drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.unveil.min.js');
+    drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/category.js');
+    drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.ajaxcart.js');
+    drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/productgrid.js');
 }
 
 function rmshoploop_preprocess_regiomino_geolocation_theme_request(&$variables) {
@@ -157,6 +157,7 @@ function rmshoploop_preprocess_node(&$vars) {
 		$vars['centralpickup'] = regiomino_shipping_get_latestorder($vars['avlbcpickupdates'], $delay, $duration, 'centralpickup');
 	}
 	else if($vars['node']->type == 'seller_profile') {
+                drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.unveil.min.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/seller-profile.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.ajaxcart.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/productgrid.js');

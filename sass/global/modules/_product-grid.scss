@@ -244,17 +244,17 @@
         background-color: transparent;
         
         img {
-            display: inline;
-            width: auto;
+            .js & { 
+                display: inline;
+                width: auto;
+            }
         }
-        
         
         .no-js & {
                 img.preloader {
                 display: none;
             }
         }
-        
     }
     
     

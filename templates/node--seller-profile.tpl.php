@@ -42,13 +42,16 @@
                 foreach($offers as $productkey=>$productinfo):  ?>
               
                     <li class="clearfix column richtooltip">
-                        <div class="img">
+                        <div class="img preloaded">
                             <?php if ($reduziert): ?>
                                 <div class="ribbon-green"></div>
                             <?php endif; ?>
                             
                             <a class="image" href="<?php echo url('node/' . $productinfo->nid); ?>">
+                                <img class="preloader" src="<?php echo base_path() . path_to_theme();?>/images/preloaders/preloader.gif" data-src="<?php echo image_style_url('productgrid_sixteen', $productinfo->field_image[LANGUAGE_NONE][0]['uri']); ?>" alt="<?php echo t("Image of product @imagetitle", array('@imagetitle' => $productinfo->title)); ?>">
+                             <noscript> 
                                 <img src="<?php echo image_style_url('productgrid_sixteen', $productinfo->field_image[LANGUAGE_NONE][0]['uri']); ?>" alt="<?php echo t("Image of product @imagetitle", array('@imagetitle' => $productinfo->title)); ?>">
+                            </noscript>
                             </a>
                             <div class="hover_buttons"> 
                                 <a class="link" href="<?php echo url('node/' . $productinfo->nid); ?>"> </a>
