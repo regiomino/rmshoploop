@@ -19,7 +19,7 @@
         display: block;
         position: relative;
         overflow: visible;
-        @include transition(all .15s linear);
+        @include transition(background-color .15s linear);
          
         .touch & {
             background-color: $white;
@@ -88,12 +88,13 @@
             opacity: 1 ;
         }
         
+        
         .image img {
             border:none;
             width:100%;
             display:block;
         }
-        
+
         .hover_buttons {
             width: 100px;
             height: 44px;
@@ -238,6 +239,25 @@
             }
         }
     }
+    
+    li .img.preloaded {
+        background-color: transparent;
+        
+        img {
+            display: inline;
+            width: auto;
+        }
+        
+        
+        .no-js & {
+                img.preloader {
+                display: none;
+            }
+        }
+        
+    }
+    
+    
     
     li .touch-button-wrapper {
         width:90px;

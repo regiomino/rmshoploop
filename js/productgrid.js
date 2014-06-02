@@ -1,5 +1,11 @@
 jQuery(document).ready(function($) {
-   $('.product-grid img').unveil();
+  $('.product-grid .image img').unveil(200, function(){
+         $(this).load(function() {
+            $(this).parents('.preloaded').removeClass('preloaded');
+            
+         });
+    
+    });
     $('.cart').add('.touch-cart').ajaxcart();
     
 /*

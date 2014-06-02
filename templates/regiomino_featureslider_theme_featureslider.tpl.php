@@ -33,7 +33,7 @@
                     }
             ?>
                 <li class="clearfix column">
-                    <div class="img">
+                    <div class="img preloaded">
                         <?php if ($reduziert): ?>
                             <div class="ribbon-green"></div>
                         <?php endif; ?>
@@ -48,10 +48,11 @@
                             </div>
                         
                         <a class="image" href="<?php echo $product['path'];?>">
-                            <img src="<?php echo base_path() . path_to_theme();?>/images/preloaders/preloader.gif" data-src="<?php echo $product['img_path'];?>"">
+                            <img class="preloader" src="<?php echo base_path() . path_to_theme();?>/images/preloaders/preloader.gif" data-src="<?php echo $product['img_path'];?>"">
                         
-                                <!--<img src="<?php echo image_style_url('productgrid_sixteen', $product['image']);?>" alt="<?php echo $product['title'];?>">-->
-				<?php //echo $product['image_full']; ?>
+                            <noscript> 
+                            <?php echo $product['image_full']; ?>
+                            </noscript>
                         </a> 
                     </div>
                     <h6>
