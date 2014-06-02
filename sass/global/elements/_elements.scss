@@ -180,11 +180,11 @@ input {
  * loading
  */
 .loading {
-    width: 16px;
-    height: 16px;
-    background:url('../images/loader-white.gif') 0 0 no-repeat;
+    width: 20px;
+    height: 20px;
+    background:url('../images/preloaders/preloader-white.gif') 0 0 no-repeat;
     display: none;
-    @include center-x-y (-8px,-8px);
+    @include center-x-y (-10px,-10px);
 }
 
 /*
