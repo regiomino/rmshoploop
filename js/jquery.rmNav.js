@@ -1,8 +1,7 @@
-
 ;(function($, window, document, undefined) {
     
     var rmNav = function (elem, options) {
-        this.elem = this,
+        this.elem = this;
         this.$elem = $(elem);
         this.options = options;
         this.$win = $(window);
@@ -16,7 +15,7 @@
         defaults : {
             moreLinkClass : '.more',
             submenuColClass : '.submenu-col',
-            moreLayout : 'more-list', // altern. 'more-list',
+            moreLayout : 'more-list',  
             moreChunks : 9,
             hoverTimeout :200
         },
@@ -34,8 +33,7 @@
         },
         
         showDropdown : function() {
-                $el = $(this);
-                
+            var $el = $(this);
             $el.addClass('active'); 
         },
         
@@ -46,18 +44,14 @@
         setEventHandlers:  function(){
             var _self = this;
              
-            //resize
-            
             _self.$menuButton.on('click.menuButton', function(){
                 _self.$elem.toggleClass('active');
-             
             });
             
             _self.$elem.on('click.touchButton','.touch-button', function(){
                 $elParent = $(this).parent();
                 _self.$elem.find('li').not($elParent).removeClass('active');
                 $elParent.toggleClass('active');
-             
             });
             
             $(window).on("resize.rm-nav", function() {
@@ -96,103 +90,46 @@
                    
                     $el.addClass('right');
                 }
-                 
             });
-        },
-        
-        reorderMoreCols : function($el){
-            var _self = this;
-            if(_self.config.moreLayout == 'more-column') { 
-                $el.find('.submenu-col').each(function () {
-                    $a = $(this);
-                    $el.prepend($a);
-                });
-            }
         },
         
         resetMenu : function(){
             var _self = this;
             
             if (_self.$elem.find('.more').length == 0) { return false;}
-            var $more = _self.$elem.find('li.more');
+            var $more = _self.$elem.find('li.more'),
+                $categories = $more.find('a.category-item');
+                    
+            $categories.each(function(){
+                var $el = $(this),
+                    $li = $('<li/>'),
+                    name = $el.data('name'),
+                    $childs = $more.find('a[data-parent="'+name+'"]'),
+                    numChilds = $childs.length,
+                    numCols = parseInt($el.data('initialcols'),10),
+                    chunks = parseInt($el.data('initialchunks'),10);
+                    
+                $li.append($el);
                 
-            if(_self.config.moreLayout == 'more-column') {
-                var $cols = $more.find('.submenu-col');
-                $cols.each(function(){
-                    var $that = $(this),
-                        $li = $('<li/>'),
-                        $catItem = $that.find('a.category-item'),
-                        numCols = parseInt($that.data('initialcols'),10);
-                       
-                    $li.append($catItem);
-                      
-                    if (numCols > 0) {
-                       
-                        var $items = $that.find('a').not('a.category-item'), 
-                            chunks = parseInt($that.data('initialchunks'),10),   
-                            $submenu = $('<div class="submenu-wrapper col-'+ numCols +' clearfix"> </div>').attr('data-cols',numCols).attr('data-chunks',chunks);
-                            
-                            
-                        if (numCols == 1) {
+                if(numCols > 0) { 
+                    $li.append('<span class="touch-button"></span>');
+                }
+                
+                if (numChilds > 0) {
+                    var $submenu = $('<div class="submenu-wrapper col-'+ numCols +' clearfix"> </div>').attr('data-cols',numCols).attr('data-chunks',chunks);
+                    for (var z = 0; z < numChilds; z += chunks) {
                             var $subcol = $('<div/>', {
                                 'class' : 'submenu-col'    
                             });
-                            $subcol.append($items);
+                            $subcol.append($childs.slice(z,z + chunks));
                             $submenu.append($subcol);
-                        }
-                        
-                        else {
-                             
-                            for (var z = 0, itemsLength = $items.length; z < itemsLength; z += chunks) {
-                                var $subcol = $('<div/>', {
-                                    'class' : 'submenu-col'    
-                                });
-                                $subcol.append($items.slice(z,z + chunks));
-                                $submenu.append($subcol);
-                            }
-                        }
-                        
-                        $li.append($submenu).addClass('wSub');
+                            
                     }
-                    
-                   _self.$elem.append($li);
-                });
-            }
-            
-            else if(_self.config.moreLayout == 'more-list') {
-                var $categories = $more.find('a.category-item');
-                    
-                $categories.each(function(){
-                    var $el = $(this),
-                        $li = $('<li/>'),
-                        name = $el.data('name'),
-                        $childs = $more.find('a[data-parent="'+name+'"]'),
-                        numChilds = $childs.length,
-                        numCols = parseInt($el.data('initialcols'),10),
-                        chunks = parseInt($el.data('initialchunks'),10);
-                        
-                    $li.append($el);
-                    
-                    if(numCols > 0) { 
-                        $li.append('<span class="touch-button"></span>');
-                    }
-                    
-                    if (numChilds > 0) {
-                        var $submenu = $('<div class="submenu-wrapper col-'+ numCols +' clearfix"> </div>').attr('data-cols',numCols).attr('data-chunks',chunks);
-                        for (var z = 0; z < numChilds; z += chunks) {
-                                var $subcol = $('<div/>', {
-                                    'class' : 'submenu-col'    
-                                });
-                                $subcol.append($childs.slice(z,z + chunks));
-                                $submenu.append($subcol);
-                                
-                        }
-                        $li.append($submenu).addClass('wSub');
-                    } 
-                     _self.$elem.append($li);
-                   
-                });
-            }
+                    $li.append($submenu).addClass('wSub');
+                } 
+                 _self.$elem.append($li);
+            });
+             
             $more.remove();
        },
         
@@ -211,88 +148,60 @@
                     
                     var $lastChild = (i == _self.numItems)? $lastItemFirstRound : _self.$elem.find('li:last-child'),
                         $catItem = $lastChild.find('.category-item'),
-                        catName = $.trim($catItem.text()).replace(/ /g,'').toLowerCase(),
+                        catName = $catItem.data('name'),
                         hasSub =  ($lastChild.find('.submenu-wrapper').length > 0)? true : false,
                         numCols = 0,
                         numChunks = 0,
                         keepLooking = _self.menuRequired($lastChild);
                    
                     if (hasSub) {
-                        
                         var $subWrapper = $lastChild.find('.submenu-wrapper');
                         numCols = $subWrapper.data('cols');
                         numChunks = $subWrapper.data('chunks');
                     }
                      
-                     if(_self.config.moreLayout == 'more-column') {
-                            var $newCol = $('<div/>', {
-                                'class' : 'submenu-col',
-                                'data-initialchunks' : ''+numChunks+'' ,
-                                'data-initialcols' : ''+numCols+''
-                            });
-                           
-                            $newCol.append($catItem);
-                        }
-                        
-                        else if (_self.config.moreLayout == 'more-list') {
-                             $catItem.attr({
-                                'data-initialchunks' : numChunks,
-                                'data-initialcols': numCols,
-                                'data-name' : catName
-                             });
-                                
-                            $submenu.append($catItem);
-                        }
+                    $catItem.attr({
+                       'data-initialchunks' : numChunks,
+                       'data-initialcols': numCols,
+                       'data-name' : catName
+                    });
+                       
+                    $submenu.append($catItem);
                     
                     if (hasSub ) {
-                        
-                        if(_self.config.moreLayout == 'more-column') { 
-                            $subWrapper.find('a').each(function(i){
-                                $(this).appendTo($newCol);
-                            });
-                        }
-                        else if(_self.config.moreLayout == 'more-list') {
-                          
-                             $subWrapper.find('a').each(function(i){
-                                $(this).attr('data-parent',catName).appendTo($submenu);
-                           
-                            });
-                        }
+                        $subWrapper.find('a').each(function(i){
+                           $(this).attr('data-parent',catName).appendTo($submenu);
+                        });
                     }
                     
-                    if(_self.config.moreLayout == 'more-column') {
-                        $submenu.append($newCol);
-                    }
-                   
                     $lastChild.remove();
                     
                     if (!keepLooking) {
                         break;
                     }
                 }
-                
-                if(_self.config.moreLayout == 'more-list') {
                     
-                    var $categories = $submenu.find('a.category-item');
-                        $categories.each(function(){
-                            var $parent = $(this),
-                                name = $parent.data('name'),
-                                $childs =  $submenu.find('a[data-parent="'+name+'"]'),
-                                $family = $parent.add($childs);
-                            $submenu.prepend($family);
-                            });
-                    var $anchors = $submenu.find('a');
-                        
-                    for (var z = 0, length = $anchors.length; z < length; z +=_self.config.moreChunks) {
-                        var $newCol = $('<div/>', {
-                            'class' : 'submenu-col',
-                        });
-                        
-                        var $subset = $anchors.slice(z, z + _self.config.moreChunks);
-                        
-                        $subset.appendTo($newCol);
-                        $newCol.appendTo($submenu);
-                    }
+                var $categories = $submenu.find('a.category-item');
+                
+                $categories.each(function(){
+                    var $parent = $(this),
+                        name = $parent.data('name'),
+                        $childs =  $submenu.find('a[data-parent="'+name+'"]'),
+                        $family = $parent.add($childs);
+                    $submenu.prepend($family);
+                });
+                
+                var $anchors = $submenu.find('a');
+                    
+                for (var z = 0, length = $anchors.length; z < length; z +=_self.config.moreChunks) {
+                    var $newCol = $('<div/>', {
+                        'class' : 'submenu-col',
+                    });
+                    
+                    var $subset = $anchors.slice(z, z + _self.config.moreChunks);
+                    
+                    $subset.appendTo($newCol);
+                    $newCol.appendTo($submenu);
                 }
                 
                 var $more = _self.insertMoreLink();
@@ -330,7 +239,6 @@
                     $lastChild.remove();
                 }
                 */
-                _self.reorderMoreCols($submenu);
                 var cols = $submenu.find('.submenu-col').length;
                 var colClass = 'col-'+cols;
                 $submenu.addClass(colClass);
@@ -349,7 +257,7 @@
                 firstItemTop = Math.floor($firstItem.offset().top),
                 result = (Math.ceil($item2Check.offset().top) >= (firstItemTop + firstItemHeight)) ? true : false;
                        
-                return result;
+            return result;
         },
         
         insertMoreLink : function() {

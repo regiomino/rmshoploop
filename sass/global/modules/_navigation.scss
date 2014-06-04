@@ -250,8 +250,6 @@
         
     }
     
-    
-    
     .menu-button {
         display: none;
     }
@@ -303,11 +301,11 @@
                     cursor: pointer;
                     text-align: center;
                     
-              
                     &:before {
                         @include icon-font ("\e60c",24px,$heading-black);
-                        @include center-x-y (-12px,-12px);
+                        @include center-x-y (-14px,-13px);
                         display: block;
+                        padding: 2px;
                         width: 24px;
                         height: 24px;
                         border: 1px dashed #D9D9D9;
@@ -328,8 +326,9 @@
                     @include transition(background-color .2s linear);
                     position: relative;
                     z-index: 1000;
-                     &:active {
-                        background-color: #f5f5f5;
+                    &:active,
+                    &:hover {
+                       background-color: #f5f5f5;
                     }
                    
                 }
@@ -374,6 +373,11 @@
                         }
                         &:first-child { 
                             border-top: none;
+                        }
+                        
+                        &:hover,
+                        &:focus {
+                            background-color: #f5f5f5;
                         }
                     }
                     

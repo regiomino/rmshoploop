@@ -10,7 +10,7 @@
     ?>
         <li class="<?php print ($hasChildren); ?>">
             
-                <a class="category-item" href="<?php echo $parentdetails['link']; ?>"><?php echo $parentdetails['title']; ?></a>
+                <a class="category-item" data-name="<?php echo strtolower(preg_replace('/\s+/', '',$parentdetails['title'])); ?>" href="<?php echo $parentdetails['link']; ?>"><?php echo $parentdetails['title']; ?></a>
                 <?php if(isset($parentdetails['children'])): ?>
                     <span class="touch-button"></span>
                  <?php endif; ?>
