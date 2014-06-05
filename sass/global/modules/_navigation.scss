@@ -86,7 +86,8 @@
             &:focus {
                 background-color:$white;
                 
-                .category-item:before {
+                .more-link:after,
+                .category-item:after {
                     color: #95BC0D;
                 }
             }
@@ -108,8 +109,9 @@
                 font-size: $nav-font-size;
                 color: $heading-black;
                 font-weight: 600;
+                @include text-shadow(rgba(white, 0.85) 1px 1px 0);
                 
-                &:before {
+                &:after {
                     font-family: 'food-icons';
                     color: $paragraph-black;
                     font-size: 12px;
@@ -123,91 +125,102 @@
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-backface-visibility:hidden;
                     position: absolute;
-                    left: 50%;
-                }
-                
-                &:hover:before,
-                &:focus:before {
-                    color: #95BC0D;
+                    @include text-shadow(rgba(white, 1) 1px 1px 0);
+                    
+                    @include bp(desktop-neg) {
+                        display: none;
+                    }
+                    
                 }
             }
             
-            a[data-name="gemuese"]:before {
+            a.category-item[data-name="gemuese"]:after {
                 content: "\e601";
-                font-size: 30px;
-                top: 5px;
+                font-size: 29px;
+                top: 6px;
                 margin-left: -15px;
+                left: 50%;
             }
             
-            a[data-name="obst"]:before {
+            a[data-name="obst"]:after  {
                 content: "\e600";
-                font-size: 30px;
-                top: 5px;
+                font-size: 29px;
+                top: 6px;
                 margin-left: -15px;
+                left: 50%;
             }
             
-            a[data-name="getraenke"]:before {
+            a[data-name="getraenke"]:after  {
                 content: "\e60a";
-                font-size: 30px;
+                font-size: 28px;
                 top: 5px;
                 margin-left: -15px;
+                left: 50%;
             }
             
-            a[data-name="fleisch&fisch"]:before {
+            a[data-name="fleisch&fisch"]:after  {
                 content: "\e606";
-                font-size: 30px;
+                font-size: 29px;
                 top: 5px;
                 margin-left: -15px;
+                left: 50%;
             }
             
-            a[data-name="getreideprodukte"]:before {
+            a[data-name="getreideprodukte"]:after  {
                 content: "\e602";
-                font-size: 44px;
-                top: -2px;
+                font-size: 45px;
+                top: -1px;
                 margin-left: -22px;
+                left: 50%;
             }
             
-            a[data-name="konserviertes"]:before {
+            a[data-name="konserviertes"]:after  {
                 content: "\e603";
-                font-size: 26px;
-                top: 7px;
+                font-size: 25px;
+                top: 8px;
                 margin-left: -13px;
+                left: 50%;
             }
             
-            a[data-name="milchprodukte&eier"]:before {
+            a[data-name="milchprodukte&eier"]:after  {
                 content: "\e608";
-                font-size: 36px;
+                font-size: 37px;
                 top: 1px;
                 margin-left: -18px;
+                left: 50%;
             }
             
             
-            a[data-name="veggie"]:before {
+            a.category-item[data-name="veggie"]:after  {
                 content: "\e605";
                 font-size: 30px;
                 top: 5px;
                 margin-left: -15px;
+                left: 50%;
             }
             
-            a[data-name="zutaten"]:before {
+            a[data-name="zutaten"]:after  {
                 content: "\e604";
                 font-size: 26px;
                 top: 8px;
                 margin-left: -14px;
+                left: 50%;
             }
             
-            a[data-name="sonstiges"]:before {
+            a[data-name="sonstiges"]:after  {
                 content: "\e607";
                 font-size: 26px;
                 top: 8px;
                 margin-left: -14px;
+                left: 50%;
             }
             
-            a.more-link:before {
+            a.more-link:after  {
                 content: "\e609";
-                font-size: 26px;
+                font-size: 25px;
                 top: 8px;
                 margin-left: -14px;
+                left: 50%;
             }
             
            
@@ -223,7 +236,6 @@
             
             .touch-button {
                 display: none;
-                
             }
             
             &.wSub:after {
@@ -232,8 +244,8 @@
                 top: 51px;
                 display: block;
                 left: 50%;
-                margin-left: -4px;
-                @include arrow-down(4px,tint($paragraph-black, 30%));
+                margin-left: -3px;
+                @include arrow-down(3px,tint($paragraph-black, 50%));
             }
             
             &.wSub .category-item {
@@ -242,10 +254,6 @@
                  @include bp(desktop-pos) {
                     padding: 34px 10px 8px 10px;
                 }
-            }
-            
-            &.more:after {
-                display: none;
             }
         }
         
@@ -291,7 +299,6 @@
                 width: 232px;
             }
                 
-            &.more-column,
             &.more-list {
                 .category-item {
                     border-right: none;
@@ -301,6 +308,15 @@
                     background-color: #F8F8F8;
                     &:before {
                         display: none;
+                    }
+                    
+                    &:after {
+                        right: 2px;
+                        left: auto;
+                        top: 4px;
+                        margin-left: 0;
+                        font-size: 26px;
+                        color: #95BC0D
                     }
                 }
             }
@@ -559,49 +575,59 @@
         
     
     @include bp(tablet-p-neg) {
-
         padding-left:43px;
         right: 0px;
     }
     
     @include bp(mobile-p-neg) {
         border-left: 1px solid $mainNav-separator-grey;
-
     }
   
     .block-regiomino-cart {
         
         .carttext a {
             @include box-sizing (border-box);
-            box-sizing: border-box;
             display:block;
             position: relative;
-            height: 45px;
-             
+            height: 45px;  
             padding-right: 10px;
             padding-top:10px;
+            
+            @include bp(desktop-pos) {
+                height: 59px;
+                padding: 19px 10px 10px 37px;
+            }
     
             &:before {
-                    position: absolute;
-                    top: 10px;
-                    left: -29px;
-                    @include icon-font ("\e601",26px,$heading-black);
+                position: absolute;
+                top: 10px;
+                left: -29px;
+                @include icon-font ("\e601",26px,$heading-black);
+                @include text-shadow(rgba(white, 1) 1px 1px 0);
+                @include bp(desktop-pos) {
+                    top: 18px;
+                    left: 3px;
+                    font-size: 28px;
                 }
+            }
             
             p {
                 font-weight: 700;
                 font-size: 12px;
                 line-height: 13px;
+                @include text-shadow(rgba(white, 1) 1px 1px 0);
             }
             
             .title {
                 text-indent: -99999px;
                 height: 0;
                 display:inline-block;
+                @include text-shadow(rgba(white, 1) 1px 1px 0);
             }
             .sum span {
                 color: $brand-green;
                 display: block;
+                @include text-shadow(rgba(white, 1) 1px 1px 0);
                 
             }
         }
