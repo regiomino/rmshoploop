@@ -84,7 +84,12 @@
                 </span>
             <?php endif; ?>
                 <span> 
-                    <?php echo t('incl. @perc VAT', array('@perc' => rtrim(rtrim(number_format($field_salestax[LANGUAGE_NONE][0]['value'], 2, ",", "."), '0'), ',') . '%')); ?>
+                    <?php if(isset($_SESSION['geolocation_data']['customertype']) && $_SESSION['geolocation_data']['customertype'] == 'commercial'): ?>
+										zzgl.
+										<?php else: ?>
+										inkl.
+										<?php endif; ?>
+										<?php echo rtrim(rtrim(number_format($field_salestax[LANGUAGE_NONE][0]['value'], 2, ",", "."), '0'), ',') ?>% MwSt.
                 </span>
         </div>
         

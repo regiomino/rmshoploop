@@ -5,6 +5,14 @@ $form = drupal_get_form('regiomino_subscription_form');
  * $form enthält jetzt alle Formular-Elemente des Warenkorbs, also pro Produkt "Anzahl" und "Bestellfrequenz" sowie die beiden Buttons "Aktualisieren" und "Zur Kasse"
  */
 $products = array();
+if(isset($_SESSION['geolocation_data'])) {
+	$customertype = $_SESSION['geolocation_data']['customertype'];
+	$pricefieldtype = $_SESSION['geolocation_data']['pricefieldtype'];
+}
+else {
+	$customertype = 'private';
+	$pricefieldtype = 'field_tu_gross';
+}
 foreach($form['regiomino_subscription']['subscription_contents'] as $key => $value) {
 	$tmp = explode('amount', $key);
 	if(isset($tmp[1])) {
@@ -29,9 +37,9 @@ foreach($form['regiomino_subscription']['subscription_contents'] as $key => $val
 			'product_id' => $offerobject->nid,
 			'product_sellertitle' => $sellerprofile->title,
 			'product_image' => theme('image_style',$productimage),
-			'product_price' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_gross') / $fci->field_amount[LANGUAGE_NONE][0]['value'],
-			'product_total' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_gross'),
-			'product_total_vat' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_vat'),
+			'product_price' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, $customertype, $fci->field_amount[LANGUAGE_NONE][0]['value'], $pricefieldtype) / $fci->field_amount[LANGUAGE_NONE][0]['value'],
+			'product_total' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, $customertype, $fci->field_amount[LANGUAGE_NONE][0]['value'], $pricefieldtype),
+			'product_total_vat' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, $customertype, $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_vat'),
 			'product_tax' => $offerobject->field_salestax[LANGUAGE_NONE][0]['value'],
 			'product_unit_first' => $offerobject->field_packingunit[LANGUAGE_NONE][0]['first'],
 			'product_unit_second' => $offerobject->field_packingunit[LANGUAGE_NONE][0]['second'],

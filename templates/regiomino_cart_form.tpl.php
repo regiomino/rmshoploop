@@ -4,6 +4,14 @@ $form = drupal_get_form('regiomino_cart_form');
  * $form enthält jetzt alle Formular-Elemente des Warenkorbs, also pro Produkt "Anzahl" und "Bestellfrequenz" sowie die beiden Buttons "Aktualisieren" und "Zur Kasse"
  */
 $products = array();
+if(isset($_SESSION['geolocation_data'])) {
+	$customertype = $_SESSION['geolocation_data']['customertype'];
+	$pricefieldtype = $_SESSION['geolocation_data']['pricefieldtype'];
+}
+else {
+	$customertype = 'private';
+	$pricefieldtype = 'field_tu_gross';
+}
 if(isset($form['regiomino_cart']) && !empty($form['regiomino_cart'])) {
 	foreach($form['regiomino_cart']['cart_contents'] as $key => $value) {
 		$tmp = explode('amount', $key);
@@ -25,9 +33,9 @@ if(isset($form['regiomino_cart']) && !empty($form['regiomino_cart'])) {
 				'product_id' => $offerobject->nid,
 				'product_image' => theme('image_style',$productimage),
 				//'product_price' => regiomino_offer_get_discountedprice($offerobject, FALSE, TRUE),
-				'product_price' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_gross') / $fci->field_amount[LANGUAGE_NONE][0]['value'],
-				'product_total' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_gross'),
-				'product_total_vat' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, 'private', $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_vat'),
+				'product_price' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, $customertype, $fci->field_amount[LANGUAGE_NONE][0]['value'], $pricefieldtype) / $fci->field_amount[LANGUAGE_NONE][0]['value'],
+				'product_total' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, $customertype, $fci->field_amount[LANGUAGE_NONE][0]['value'], $pricefieldtype),
+				'product_total_vat' => regiomino_offer_get_tradingunit_moneyvalue($offerobject, FALSE, TRUE, $customertype, $fci->field_amount[LANGUAGE_NONE][0]['value'], 'field_tu_vat'),
 				'product_tax' => $offerobject->field_salestax[LANGUAGE_NONE][0]['value'],
 				'product_unit_first' => $offerobject->field_packingunit[LANGUAGE_NONE][0]['first'],
 				'product_unit_second' => $offerobject->field_packingunit[LANGUAGE_NONE][0]['second'],
@@ -104,7 +112,7 @@ echo render($form['form_token']);
                     <td class="sum"><?php echo number_format($totaladdup, 2, ",", "."); ?> &euro;</td>
             </tr>
             <tr class="summary vat">
-                    <td colspan="4">enthaltene MwSt.</td>
+                    <td colspan="4"><?php if(isset($_SESSION['geolocation_data'])): ?><?php if($_SESSION['geolocation_data']['customertype'] == 'commercial'): ?>zuzüglich<?php else: ?>enthaltene<?php endif; ?><?php else: ?>enthaltene<?php endif; ?> MwSt.</td>
                     <td><?php echo number_format($vataddup, 2, ",", "."); ?> &euro;</td>
             </tr>
 

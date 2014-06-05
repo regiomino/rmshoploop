@@ -98,9 +98,18 @@ $form = $vars['form'];
                     <td><?php echo number_format($totaladdup, 2, ",", "."); ?> &euro;</td>
             </tr>
             <tr class="summary vat">
-                    <td colspan="4">enthaltene MwSt.</td>
+                    <td colspan="4"><?php if(isset($_SESSION['geolocation_data'])): ?><?php if($_SESSION['geolocation_data']['customertype'] == 'commercial'): ?>zuzüglich<?php else: ?>enthaltene<?php endif; ?><?php else: ?>enthaltene<?php endif; ?> MwSt.</td>
                     <td><?php echo number_format($vataddup, 2, ",", "."); ?> &euro;</td>
             </tr>
+						
+						<?php if(isset($_SESSION['geolocation_data'])): ?>
+							<?php if($_SESSION['geolocation_data']['customertype'] == 'commercial'): ?>
+								<tr class="summary totalex">
+									<td colspan="4">Gesamt inkl. MwSt.</td>
+									<td><?php echo number_format($totaladdup+$vataddup, 2, ",", "."); ?> &euro;</td>
+								</tr>
+							<?php endif; ?>
+						<?php endif; ?>
 						
 <?php if($currentbalance > 0): ?>
 

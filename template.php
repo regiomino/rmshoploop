@@ -119,15 +119,24 @@ function rmshoploop_html_head_alter(&$head_elements) {
 }
 
 function rmshoploop_preprocess_node(&$vars) {
+
+	if(isset($_SESSION['geolocation_data'])) {
+		$customertype = $_SESSION['geolocation_data']['customertype'];
+		$pricefieldtype = $_SESSION['geolocation_data']['pricefieldtype'];
+	}
+	else {
+		$customertype = 'private';
+		$pricefieldtype = 'field_tu_gross';
+	}
 	
 	if($vars['node']->type == 'offer') {
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.etalage.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.rmtabs.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/product-detail.js', array('scope' => 'footer'));
 		global $base_path;
-		$vars['originalprice'] = regiomino_offer_get_originalprice($vars['node'], TRUE);
+		$vars['originalprice'] = regiomino_offer_get_tradingunit_moneyvalue($vars['node'], TRUE, TRUE, $customertype, 1, $pricefieldtype);
 		//$vars['discountedprice'] = regiomino_offer_get_discountedprice($vars['node'], TRUE);
-		$vars['discountedprice'] = regiomino_offer_get_tradingunit_moneyvalue($vars['node'], TRUE, TRUE, 'private', 1, 'field_tu_gross');
+		$vars['discountedprice'] = regiomino_offer_get_tradingunit_moneyvalue($vars['node'], TRUE, TRUE, $customertype, 1, $pricefieldtype);
 		$vars['baseprice'] = regiomino_offer_get_baseprice($vars['node']);
 		$vars['qualitylabels'] = array();
 		if($vars['field_labels'] && !empty($vars['field_labels'])) {
@@ -190,7 +199,7 @@ function rmshoploop_preprocess_node(&$vars) {
 			$selleruser = user_load($values->uid);
 		
 			//$vars['offers'][$nid]->discountedprice = regiomino_offer_get_discountedprice($values);
-			$vars['offers'][$nid]->discountedprice = regiomino_offer_get_tradingunit_moneyvalue($values, FALSE, TRUE, 'private', 1, 'field_tu_gross');
+			$vars['offers'][$nid]->discountedprice = regiomino_offer_get_tradingunit_moneyvalue($values, FALSE, TRUE, $customertype, 1, $pricefieldtype);
 			
 			
 			$vars['offers'][$nid]->shipping = regiomino_shipping_get_latestorder($avlbpickupdates, $delay, $duration);
