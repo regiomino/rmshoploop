@@ -11,6 +11,9 @@
 
 #mainNav {
     height:43px;
+    @include bp(desktop-pos) {
+            height:59px;
+    }
     margin-bottom:19px;
     border:1px solid $mainNav-border;
     background: $mainNav-gradient-start;
@@ -82,6 +85,10 @@
             &:hover,
             &:focus {
                 background-color:$white;
+                
+                .category-item:before {
+                    color: #95BC0D;
+                }
             }
             a.more-link,
             a.category-item {
@@ -91,15 +98,119 @@
                 }
                 border-bottom: none;
                 border-top:none;
-                padding: 13px 10px ;
+                padding: 13px 10px;
+                @include bp(desktop-pos) {
+                     padding: 34px 10px 8px 10px;
+                }
                 background: none;
                 display: block;
                 text-transform: uppercase;
                 font-size: $nav-font-size;
                 color: $heading-black;
                 font-weight: 600;
+                
+                &:before {
+                    font-family: 'food-icons';
+                    color: $paragraph-black;
+                    font-size: 12px;
+                    speak: none;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-backface-visibility:hidden;
+                    position: absolute;
+                    left: 50%;
+                }
+                
+                &:hover:before,
+                &:focus:before {
+                    color: #95BC0D;
+                }
             }
             
+            a[data-name="gemuese"]:before {
+                content: "\e601";
+                font-size: 30px;
+                top: 5px;
+                margin-left: -15px;
+            }
+            
+            a[data-name="obst"]:before {
+                content: "\e600";
+                font-size: 30px;
+                top: 5px;
+                margin-left: -15px;
+            }
+            
+            a[data-name="getraenke"]:before {
+                content: "\e60a";
+                font-size: 30px;
+                top: 5px;
+                margin-left: -15px;
+            }
+            
+            a[data-name="fleisch&fisch"]:before {
+                content: "\e606";
+                font-size: 30px;
+                top: 5px;
+                margin-left: -15px;
+            }
+            
+            a[data-name="getreideprodukte"]:before {
+                content: "\e602";
+                font-size: 44px;
+                top: -2px;
+                margin-left: -22px;
+            }
+            
+            a[data-name="konserviertes"]:before {
+                content: "\e603";
+                font-size: 26px;
+                top: 7px;
+                margin-left: -13px;
+            }
+            
+            a[data-name="milchprodukte&eier"]:before {
+                content: "\e608";
+                font-size: 36px;
+                top: 1px;
+                margin-left: -18px;
+            }
+            
+            
+            a[data-name="veggie"]:before {
+                content: "\e605";
+                font-size: 30px;
+                top: 5px;
+                margin-left: -15px;
+            }
+            
+            a[data-name="zutaten"]:before {
+                content: "\e604";
+                font-size: 26px;
+                top: 8px;
+                margin-left: -14px;
+            }
+            
+            a[data-name="sonstiges"]:before {
+                content: "\e607";
+                font-size: 26px;
+                top: 8px;
+                margin-left: -14px;
+            }
+            
+            a.more-link:before {
+                content: "\e609";
+                font-size: 26px;
+                top: 8px;
+                margin-left: -14px;
+            }
+            
+           
             &:first-child .submenu-wrapper {
                 left:-1px;
             }
@@ -118,14 +229,19 @@
             &.wSub:after {
                 content: '';
                 position: absolute;
-                top: 20px;
+                top: 51px;
                 display: block;
-                right: 5px;
-                @include arrow-down(3px,tint($paragraph-black, 10%));
+                left: 50%;
+                margin-left: -4px;
+                @include arrow-down(4px,tint($paragraph-black, 30%));
             }
             
             &.wSub .category-item {
                 padding: 13px 13px 13px 7px;
+                
+                 @include bp(desktop-pos) {
+                    padding: 34px 10px 8px 10px;
+                }
             }
             
             &.more:after {
