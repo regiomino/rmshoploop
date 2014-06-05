@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Dosis:600|Open+Sans:400italic,600italic,400,600,700);
-@import url(https://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here);
 /*font-family: 'Just Me Again Down Here', cursive;*/
 @font-face {
 	font-family: 'icons';
@@ -8,6 +7,18 @@
 		url('../fonts/icons/icons.woff?-wbi25l') format('woff'),
 		url('../fonts/icons/icons.ttf?-wbi25l') format('truetype'),
 		url('../fonts/icons/icons.svg?-wbi25l#icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'food-icons';
+	src:url('../fonts/foodicons/food-icons.eot?259rcy');
+	src:url('../fonts/foodicons/food-icons.eot?#iefix259rcy') format('embedded-opentype'),
+		url('../fonts/foodicons/food-icons.woff?259rcy') format('woff'),
+		url('../fonts/foodicons/food-icons.ttf?259rcy') format('truetype'),
+		url('../fonts/foodicons/food-icons.svg?259rcy#food-icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

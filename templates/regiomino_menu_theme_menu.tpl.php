@@ -1,3 +1,13 @@
+<?php
+function umlaute_ersetzen($text){
+    $such_array  = array ('ä', 'ö', 'ü', 'ß');
+    $ersetzen_array = array ('ae', 'oe', 'ue', 'ss');
+    $neuer_text  = str_replace($such_array, $ersetzen_array, $text);
+    return $neuer_text;
+}
+
+?>
+
 <div class="menu-button">Menü<span class="touch-button"></span></div>
 <nav> 
     <ul class="rmnav">
@@ -9,8 +19,11 @@
        
     ?>
         <li class="<?php print ($hasChildren); ?>">
-            
-                <a class="category-item" data-name="<?php echo strtolower(preg_replace('/\s+/', '',$parentdetails['title'])); ?>" href="<?php echo $parentdetails['link']; ?>"><?php echo $parentdetails['title']; ?></a>
+                <?php
+                    $raw = strtolower(preg_replace('/\s+/', '',$parentdetails['title']));
+                    $data_attr = umlaute_ersetzen($raw);
+                ?>
+                <a class="category-item" data-name="<?php echo $data_attr; ?>" href="<?php echo $parentdetails['link']; ?>"><?php echo $parentdetails['title']; ?></a>
                 <?php if(isset($parentdetails['children'])): ?>
                     <span class="touch-button"></span>
                  <?php endif; ?>
