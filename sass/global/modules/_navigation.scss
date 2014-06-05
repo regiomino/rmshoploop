@@ -131,6 +131,10 @@
                         display: none;
                     }
                     
+                    .ie8 & {
+                        display: none;
+                    }
+                    
                 }
             }
             
@@ -242,6 +246,9 @@
                 content: '';
                 position: absolute;
                 top: 51px;
+                .ie8 & {
+                        top: 32px;
+                    }
                 display: block;
                 left: 50%;
                 margin-left: -3px;
