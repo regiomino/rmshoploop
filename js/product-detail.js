@@ -1,7 +1,67 @@
 jQuery(document).ready(function($) {
     /*
  * Productdetail
- */  
+ */
+    $('#edit-submit--4').on('click', function(e){
+        e.preventDefault();
+        
+        var $confirmContainer = $('#add2CartConfirm'),
+            productID = $('.title', $confirmContainer).data('id'),
+            selectedQty = parseInt($('#edit-qty option:selected').attr('value'),10),
+            selectedInterval = parseInt($('#edit-frequency option:selected').attr('value'),10),
+            selectedDetailsText = "(" +$('#edit-qty option:selected').text() + ", ";
+            
+            selectedDetailsText += $('#edit-frequency option:selected').text() + ")";
+            $('.selected-details',$confirmContainer).text(selectedDetailsText);
+            
+        $.fancybox.open($confirmContainer);
+        
+        var data = new Object,
+            callback_url = Drupal.settings.basePath + 'addtocart';
+            
+            data['nid'] = productID;
+            data['qty'] = selectedQty;
+            data['frq'] =  selectedInterval;
+            
+        $.ajax({
+                    url: callback_url,
+                    type: 'POST',
+                    data: data,
+                    success: function (data, textStatus, jqXHR) {
+                    },
+                    
+                    error: function (http) {
+                    },
+                    
+                    complete: function() {
+                      console.info("IS drin");
+                        //Die Anzahl im Warenkorb-Block wird aktualisiert
+                        var new_url = Drupal.settings.basePath + 'getcartblocktext';
+                        var new_data = new Object;
+                        $.ajax({
+                            url: new_url,
+                            type: 'POST',
+                            data: new_data,
+                            success: function (data, textStatus, jqXHR) {
+                                    $('#block-regiomino-cart-regiomino-cart-block .carttext .sum').html(data);
+                            },
+                            error: function (http) {
+                                   
+                            },
+                            complete: function() {
+                            }
+                        });
+                    }
+        }); 
+    });
+    
+    $('#add2CartConfirm .close').click(function(e) {
+        e.preventDefault();
+         $.fancybox.close();
+    });
+    
+    
+      
         
 var $moveableSource = $('#moveableSource');
 var $moveableTarget = $('#moveableTarget');

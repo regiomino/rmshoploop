@@ -130,6 +130,7 @@ function rmshoploop_preprocess_node(&$vars) {
 	}
 	
 	if($vars['node']->type == 'offer') {
+                drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.fancybox.pack.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.etalage.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.rmtabs.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/product-detail.js', array('scope' => 'footer'));

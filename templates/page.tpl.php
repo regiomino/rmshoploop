@@ -56,11 +56,7 @@
         <?php if ($breadcrumb): ?>
             <div class="breadcrumbs-container">
                 <span class="back" onclick="window.history.go(-1)">zurück</span>
-                <!--<ul>
-                                <li> <a href="#"> Home</a></li>
-                                <li> <a href="#"> Gemüse</a></li>
-                </ul>-->
-								<?php print $breadcrumb; ?>
+		<?php print $breadcrumb; ?>
             </div>
             
         <?php endif; ?>
@@ -87,11 +83,10 @@
               <?php print render($action_links); ?>
             </ul>
         <?php endif; ?>
-				
+                                
         <?php print render($page['preface']); ?>
-				<?php print render($page['sidebar_left']); ?>
+        <?php print render($page['sidebar_left']); ?>
         <?php print render($page['content']); ?>
-    
 </div>
 
 
@@ -111,8 +106,12 @@
 
  <?php   print render($page['geolocentry']); ?>
  <?php if ($messages): ?>
-    <div id="messages"><div class="section clearfix">
-      <?php print $messages; ?>
-    </div></div> <!-- /.section, /#messages -->
+    <div id="messages">
+        <div class="section clearfix">
+        <?php print $messages; ?>
+        </div>
+    </div> <!-- /.section, /#messages -->
   <?php endif; ?>
+  <script>
+</script>
 </div>

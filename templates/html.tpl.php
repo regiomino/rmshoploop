@@ -24,11 +24,8 @@
     <script>
         (function ($) {
             
-             $(".rmnav").rmNav( {
-                
-             
-            }); 
-            
+             $(".rmnav").rmNav();
+
         })(jQuery);
     </script>
 </body>

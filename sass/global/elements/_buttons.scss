@@ -19,6 +19,7 @@ input[type="submit"] {
 #regiomino-cart-shippingaddressinfo-form input[type="submit"],
 #regiomino-cart-paymentinfo-form input[type="submit"],
 .page-checkout-verify #edit-submit,
+.button-red,
 a.button {
     @include sassy-button("simple", 4px, 13px, $red-button-gradient-start, $red-button-gradient-end, $button-white, "none");
     @include text-shadow($red-button-text-shadow 1px 1px 0);
@@ -31,6 +32,7 @@ a.button {
 
 .productcontact input[type="submit"],
 .page-user-register .form-submit,
+.button-green,
 #block-webform-client-block-1188 input[type="submit"],
 #edit-submit--4,
 #block-regiomino-cart-regiomino-checkout-coupon input[type="submit"],
