@@ -211,13 +211,14 @@
     
 </div>
 <div id="add2CartConfirm">
-    <div class="summary clearfix"> 
+    <h1> Folgendes Produkt wurde in Ihren Warenkorb gelegt:</h1>
+    <div class="summary row">
         <img class="image" src="<?php echo image_style_url('etalage_thumb_image', $value['uri']) ?>" />
-        <p class="summary"> <span data-id="<?php echo $node->nid ?>" class="title"><?php print $title; ?> </span><span class="selected-details"></span> wurde in Ihren Warenkorb gelegt!</p>
+        <p> <span data-id="<?php echo $node->nid ?>" class="title"><strong><?php print $title; ?> </span></strong><span class="selected-details"></span> </p>
     </div>
 
-    <div class="next-steps">
-        <p> Möchten Sie jetzt </p>
+    <div class="next-steps row">
+        <p> <strong>Möchten Sie jetzt </strong> </p>
         <div class="buttons clearfix">
             <a class="close button-green" href="#" class="button-green">Weiter einkaufen</a>
             <?php echo l('Warenkorb ansehen', 'cart', array('attributes' => array('class' => 'button-red'))); ?>

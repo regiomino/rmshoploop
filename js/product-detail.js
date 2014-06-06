@@ -9,9 +9,9 @@ jQuery(document).ready(function($) {
             productID = $('.title', $confirmContainer).data('id'),
             selectedQty = parseInt($('#edit-qty option:selected').attr('value'),10),
             selectedInterval = parseInt($('#edit-frequency option:selected').attr('value'),10),
-            selectedDetailsText = "(" +$('#edit-qty option:selected').text() + ", ";
+            selectedDetailsText = $('#edit-qty option:selected').text() + ", ";
             
-            selectedDetailsText += $('#edit-frequency option:selected').text() + ")";
+            selectedDetailsText += $('#edit-frequency option:selected').text();
             $('.selected-details',$confirmContainer).text(selectedDetailsText);
             
         $.fancybox.open($confirmContainer);

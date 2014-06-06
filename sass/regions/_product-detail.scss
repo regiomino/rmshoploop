@@ -773,10 +773,57 @@
         }
     }
     
+    
+    
     #add2CartConfirm {
         display: none;
-        img {
-            width: 18%;
+        position: relative;
+        
+         h1 {
+            color: $heading-black;
+            font-size: 18px;
+            position: relative;
+            padding-left: 28px;
+            
+            &:before {
+                @include icon-font ("\e617",26px,$brand-green);
+                position: absolute;
+                left: 0;
+                top: 4px;
+            }
+         }
+         
+        .summary {
+
+            .image {
+                width: 30%;
+                float: left;
+                margin-right: 20px;
+            }
+            
+            .title,
+            .selected-details {
+                display: block;
+            }
+        }
+         
+        .next-steps {
+            text-align: center;
+            border-top: 1px dashed  #C5C5C5;
+             padding-top: 20px;
+        }
+         
+        a {
+            margin: 0 10px;
+            color: $white;
+            transition: none;
+        }
+        
+        .button-green:hover,
+        .button-green:focus,
+        .button-red:hover,
+        .button-red:focus {
+            color: $white;
         }
     }
 }
