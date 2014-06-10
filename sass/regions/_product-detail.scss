@@ -486,12 +486,26 @@
                 margin-bottom:13px;
             }
             
-            
-            
             @include bp(mobile-p) {
                 float: none;
             }
         }
+        
+        .button-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            
+            .loader {
+                position: absolute;
+                left: 30%;
+                background-image: url(../images/preloaders/preloader-white.gif);
+                top: 50%;
+                margin-top: -10px;
+                width:20px;
+                height:20px; 
+            }
+        }  
     }
     
     .productdiscount {
@@ -770,6 +784,60 @@
         border: 1px solid #E3E3E3;
         .webform-component--angebotsnummer {
             display: none;
+        }
+    }
+    
+    
+    
+    #add2CartConfirm {
+        display: none;
+        position: relative;
+        
+         h1 {
+            color: $heading-black;
+            font-size: 18px;
+            position: relative;
+            padding-left: 28px;
+            
+            &:before {
+                @include icon-font ("\e617",26px,$brand-green);
+                position: absolute;
+                left: 0;
+                top: 4px;
+            }
+         }
+         
+        .summary {
+
+            .image {
+                width: 30%;
+                float: left;
+                margin-right: 20px;
+            }
+            
+            .title,
+            .selected-details {
+                display: block;
+            }
+        }
+         
+        .next-steps {
+            text-align: center;
+            border-top: 1px dashed  #C5C5C5;
+             padding-top: 20px;
+        }
+         
+        a {
+            margin: 0 10px;
+            color: $white;
+            transition: none;
+        }
+        
+        .button-green:hover,
+        .button-green:focus,
+        .button-red:hover,
+        .button-red:focus {
+            color: $white;
         }
     }
 }

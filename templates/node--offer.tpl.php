@@ -210,6 +210,21 @@
     
     
 </div>
+<div id="add2CartConfirm">
+    <h1> Folgendes Produkt wurde in Ihren Warenkorb gelegt:</h1>
+    <div class="summary row">
+        <img class="image" src="<?php echo image_style_url('cart_added', $node->field_image[LANGUAGE_NONE][0]['uri']) ?>" />
+        <p> <span data-id="<?php echo $node->nid ?>" class="title"><strong><?php print $title; ?> </span></strong><span class="selected-details"></span> </p>
+    </div>
 
+    <div class="next-steps row">
+        <p> <strong>Möchten Sie jetzt </strong> </p>
+        <div class="buttons clearfix">
+            <a class="close button-green" href="#" class="button-green">Weiter einkaufen</a>
+            <?php echo l('Warenkorb ansehen', 'cart', array('attributes' => array('class' => 'button-red'))); ?>
+        </div>
+    </div>
+</div>
+    
    
 
