@@ -167,10 +167,11 @@ function rmshoploop_preprocess_node(&$vars) {
 		$vars['centralpickup'] = regiomino_shipping_get_latestorder($vars['avlbcpickupdates'], $delay, $duration, 'centralpickup');
 	}
 	else if($vars['node']->type == 'seller_profile') {
+                drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.fancybox.pack.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.unveil.min.js');
-                drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/seller-profile.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.ajaxcart.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/productgrid.js');
+                drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/seller-profile.js');
 		$query = new EntityFieldQuery();
 		$tmp = $query
 			->entityCondition('entity_type', 'node')

@@ -213,7 +213,7 @@
 <div id="add2CartConfirm">
     <h1> Folgendes Produkt wurde in Ihren Warenkorb gelegt:</h1>
     <div class="summary row">
-        <img class="image" src="<?php echo image_style_url('etalage_thumb_image', $value['uri']) ?>" />
+        <img class="image" src="<?php echo image_style_url('cart_added', $node->field_image[LANGUAGE_NONE][0]['uri']) ?>" />
         <p> <span data-id="<?php echo $node->nid ?>" class="title"><strong><?php print $title; ?> </span></strong><span class="selected-details"></span> </p>
     </div>
 

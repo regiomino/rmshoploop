@@ -486,12 +486,26 @@
                 margin-bottom:13px;
             }
             
-            
-            
             @include bp(mobile-p) {
                 float: none;
             }
         }
+        
+        .button-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            
+            .loader {
+                position: absolute;
+                left: 30%;
+                background-image: url(../images/preloaders/preloader-white.gif);
+                top: 50%;
+                margin-top: -10px;
+                width:20px;
+                height:20px; 
+            }
+        }  
     }
     
     .productdiscount {
