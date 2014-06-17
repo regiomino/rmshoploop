@@ -5,9 +5,9 @@
         <p> Machen Sie mit und profitieren Sie von Regiomino in Ihrer Region:  
         Sie möchten <strong>Bestellungen ausliefern</strong>, <strong>eigene Waren anbieten</strong>, oder eine <strong>Region betreuen?</strong></p>  
           
-        <h3>Jetzt Lieferant werden!</h3>
+        <h3>Jetzt Spediteur werden!</h3>
         <div class="acc">
-            <p>  Regiomino-Lieferanten erhalten Lieferauftragseingänge zu den gewünschten Terminen und holen bzw. liefern ab.
+            <p>  Regiomino-Spediteure erhalten Lieferauftragseingänge zu den gewünschten Terminen und holen bzw. liefern ab.
             </p>
             <ul> 
                 <li>Der Kunde beauftragt direkt </li>
