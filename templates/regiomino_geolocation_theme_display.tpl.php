@@ -7,7 +7,7 @@
 		<?php $deliverytype = t('Pickup at storage point'); ?>
 	<?php endif; ?>
 	
-	<?php echo $deliverytype . ' ' . $vars['geoloc_zip'] . ' ' . $vars['geoloc_loc'] . '<br> ' . $vars['timewindow'] . ' <a id="changeregionbtn" href="' . $vars['resetpath'] . '">' . t('different region') . '?</a>'; ?>
+	Sie bestellen für den <?php echo $vars['timewindow']; ?>
 	
 	<?php if($vars['cartfilled']): ?>
 		<div id="changeregiondialog" title="<?php echo t('Change region'); ?>"><p><?php echo t('Please notice that changing your region results in deletion of your current shopping cart. This is due to a regionally restricted availability of products.'); ?></p></div>
