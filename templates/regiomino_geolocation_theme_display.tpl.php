@@ -7,7 +7,7 @@
 		<?php $deliverytype = t('Pickup at storage point'); ?>
 	<?php endif; ?>
 	
-	Sie bestellen für den <?php echo $vars['timewindow']; ?>
+	Sie bestellen für <?php echo $vars['timewindow']; ?>
 	
 	<?php if($vars['cartfilled']): ?>
 		<div id="changeregiondialog" title="<?php echo t('Change region'); ?>"><p><?php echo t('Please notice that changing your region results in deletion of your current shopping cart. This is due to a regionally restricted availability of products.'); ?></p></div>
