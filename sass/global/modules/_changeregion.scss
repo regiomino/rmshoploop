@@ -1,0 +1,43 @@
+.changeregion {
+        border:1px solid $mainNav-border;
+        background: $mainNav-gradient-start;
+        background: -moz-linear-gradient(top, $mainNav-gradient-start 0%, $mainNav-gradient-end 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$mainNav-gradient-start), color-stop(100%,$mainNav-gradient-end));
+        background: -webkit-linear-gradient(top, $mainNav-gradient-start 0%,$mainNav-gradient-end 100%);
+        background: -o-linear-gradient(top, $mainNav-gradient-start 0%,$mainNav-gradient-end 100%);
+        background: -ms-linear-gradient(top, $mainNav-gradient-start 0%,$mainNav-gradient-end 100%);
+        background: linear-gradient(to bottom, $mainNav-gradient-start 0%,$mainNav-gradient-end 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#f3f3f3',GradientType=0 );
+        top: -25px;
+        position: relative;
+        margin-left: 10px;
+        display: inline-block;
+        @include border-radius(5px);
+        @include box-shadow($mainNav-boxshadow 0 2px 2px);
+            
+        .changeregionbtn {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: $brand-green;
+            font-weight: 700;
+            display:  block;
+            @include border-radius(5px);
+            @include text-shadow(rgba(white, 0.5) 1px 1px 0);
+            padding: 10px 40px 10px 10px;
+            @include transition(background .2s linear);
+            
+            &:after {
+                 position: absolute;
+                        right: 6px;
+                        top: 50%;
+                        margin-top: -11px;
+                        @include icon-font("\e600",25px,$brand-green);
+            }
+            
+            &:hover,
+            &:focus {
+                background: $white;
+            }
+            
+        }
+}

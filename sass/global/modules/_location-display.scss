@@ -58,8 +58,8 @@
                 position: absolute;
                 left: 6px;
                 top: 50%;
-                margin-top: -16px;
-                @include icon-font("\e600",32px,$brand-green);
+                margin-top: -14px;
+                @include icon-font("\e61f",26px,$brand-green);
             }
             
             a {

@@ -10,17 +10,21 @@
 
 #middleHeader {
     padding: 15px 0px 15px 0;
+    
     .no-js & {
         padding: 15px 0px 0px 0;
     }
     .logo-wrapper {
         float:left;
+        width: auto;
         
         @include bp(tablet-p-neg) {
             width: 100%;
             text-align: center;
         }
-    }   
+
+    }
+ 
 }
 
 
