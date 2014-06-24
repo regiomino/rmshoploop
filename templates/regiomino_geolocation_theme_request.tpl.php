@@ -139,12 +139,9 @@ Lebensqualität.
                            <!--<?php echo t('OR'); ?> 
                    </div>-->
                    <div class="row delivery">
-                           <h2><?php echo t('Delivery'); ?></h2>
+                           <h2>Bitte wählen Sie Ihre Postleitzahl</h2>
+													 <p>Wir benötigen diese Information, um Ihnen die für Sie verfügbaren Produkte anzeigen zu können</p>
                            <?php echo $vars['form_zipcode']; ?>
-                   </div>
-                   <div class="row pickup">
-                           <h2><?php echo t('Pickup'); ?></h2>
-                           <?php echo $vars['form_rmpoint']; ?>
                    </div>
                
                

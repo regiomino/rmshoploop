@@ -19,6 +19,9 @@
                         <a class="logo ir" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="<?php print t('Home'); ?>" id="logo">
                            Regiomino
                         </a>
+                        <div class="changeregion"> 
+                            <?php if(isset($_SESSION['geolocation_data']['metro_name'])) echo l($_SESSION['geolocation_data']['metro_name'], current_path(), array('attributes' => array('class' => array('changeregionbtn')), 'query' => array('resetloc' => 1))); ?>
+                        </div>
                     <?php endif; ?>
                 </div><!--end logo-wrapper-->
                 
