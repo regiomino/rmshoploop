@@ -30,7 +30,7 @@ function umlaute_ersetzen($text){
                 <?php if(isset($parentdetails['children'])): ?>
                         <?php $amount = count($parentdetails['children']);
                               $n = 1;
-                              $chunks = 5;
+                              $chunks = 7;
                               $cols = ceil($amount / $chunks);
                         ?>
                         <div class="submenu-wrapper col-<?php echo $cols; ?> clearfix" data-chunks="<?php echo $chunks; ?>" data-cols="<?php echo $cols;?>">
