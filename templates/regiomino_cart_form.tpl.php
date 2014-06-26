@@ -91,7 +91,7 @@ echo render($form['form_token']);
                     </div>
                 </td>
 
-                <td data-th="Preis"><h5> <?php echo str_replace('.', ',', $values['product_price']); ?> &euro; / <?php echo $values['product_unit_first']; ?> <?php echo t($values['product_unit_second']); ?></h5></td>
+                <td data-th="Preis"><h5> <?php echo number_format($values['product_price'], 2, ",", "."); ?> &euro; / <?php echo $values['product_unit_first']; ?> <?php echo t($values['product_unit_second']); ?></h5></td>
 
                 <td class="order-frequency" data-th="Bestellintervall"><?php echo render($form['regiomino_cart']['cart_contents']['frequency' . $values['fci']]); ?></td>
 
