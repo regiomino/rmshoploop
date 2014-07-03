@@ -1,5 +1,4 @@
 jQuery(document).ready(function($) {
-    console.info($('#highlight .image-slide').length);
     if ($('#highlight .image-slide').length > 0) { 
         $('#highlight').royalSlider({
             autoHeight: true,
