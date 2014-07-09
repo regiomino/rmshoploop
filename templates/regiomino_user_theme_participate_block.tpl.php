@@ -3,7 +3,21 @@
     <div class="home_news">
         <h2>Jetzt mitmachen!</h2>
         <p> Machen Sie mit und profitieren Sie von Regiomino in Ihrer Region:  
-        Sie möchten <strong>Bestellungen ausliefern</strong>, <strong>eigene Waren anbieten</strong>, oder eine <strong>Region betreuen?</strong></p>  
+        Sie möchten <strong>für Ihren Betrieb einkaufen</strong>, <strong>Bestellungen ausliefern</strong>, <strong>eigene Waren anbieten</strong>, oder eine <strong>Region betreuen?</strong></p>
+
+				<h3>Jetzt Gewerbekunde werden!</h3>
+        <div class="acc">
+            <p>Als gewerblicher Kunde bei Regiomino decken Sie den Bedarf Ihres (Gastronomie-)Betriebes mit nur einer Bestellung
+            </p>
+            <ul>
+								<li>kein aufwändiges Beauftragen verschiedener Verkäufer</li>
+                <li>Zustellung frei Haus durch die Verkäufer selbst oder Regiomino Spediteure</li>
+								<li>Gewerbliche Gebindegrößen</li>
+                <li>Netto-Preise mit MwSt. Ausweis</li>
+                <li>Zahlung per Rechnung möglich (bitte kontaktieren Sie uns)</li>
+            </ul>
+              <a href="<?php echo url('node/add/commercial-profile'); ?>" class="button"> Jetzt registrieren </a>
+        </div>				
           
         <h3>Jetzt Spediteur werden!</h3>
         <div class="acc">

@@ -93,7 +93,18 @@ Lebensqualität.
                             </div>
                         </div>
                       -->  
+                 
+										<div class="row first"> 
+                        <h2>Jetzt Gewerbekunde werden!</h2>
                         
+                        <p>  Als gewerblicher Kunde bei Regiomino decken Sie den Bedarf Ihres (Gastronomie-)Betriebes mit nur einer Bestellung
+                        </p>
+                        
+                         
+                          <a href="http://www.regiomino.de/node/add/commercial-profile" class="button"> Jetzt registrieren </a>
+                           <span class="written"> ...für Gastronomen und andere Betriebe!</span>
+                    </div>
+								 
                   <div class="row first"> 
                         <h2>Jetzt Spediteur werden!</h2>
                         
