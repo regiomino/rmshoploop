@@ -210,6 +210,10 @@ function rmshoploop_preprocess_node(&$vars) {
 			$vars['offers'][$nid]->seller_profile = node_load($selleruser->field_profilereference[LANGUAGE_NONE][0]['target_id']);
 		}
 	}
+	else if($vars['node']->type == 'commercial_profile') {
+                drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.fancybox.pack.js');
+                drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/commercial-profile.js');
+	}
 }
 
 function rmshoploop_theme() {
