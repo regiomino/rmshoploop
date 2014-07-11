@@ -62,7 +62,17 @@
             #edit-submit-zipcode {
                 width: 100%;
                 font-weight: 700;
+                font-size: 16px;
                 text-transform:none
+            }
+            
+            .callout {
+                font-size: 11px;
+                margin-top: 10px;
+                
+                a {
+                    color: $brand-green;
+                }
             }
         }
         

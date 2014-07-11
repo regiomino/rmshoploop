@@ -14,6 +14,8 @@
             <h1>Bitte wählen Sie Ihr Liefergebiet</h1>
             
             <?php  echo $vars['form_zipcode']; ?>
+            <p class="callout">Ihre Region ist noch nicht dabei? <a href="#"> Bewerben Sie
+sich für Ihre Stadt!</a> </p>
         </div>
     </div>
     <div class="footer">
