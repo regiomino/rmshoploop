@@ -30,10 +30,10 @@ function rmshoploop_preprocess_regiomino_productranking_theme_category(&$variabl
     drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/productgrid.js');
 }
 
-function rmshoploop_preprocess_regiomino_geolocation_theme_request(&$variables) {
+/*function rmshoploop_preprocess_regiomino_geolocation_theme_request(&$variables) {
   drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.royalslider.custom.min.js');
   drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/popup.js');
-}
+} */
 
 /**
  * Implements hook_block_list_alter().
@@ -167,11 +167,6 @@ function rmshoploop_preprocess_node(&$vars) {
 		$vars['centralpickup'] = regiomino_shipping_get_latestorder($vars['avlbcpickupdates'], $delay, $duration, 'centralpickup');
 	}
 	else if($vars['node']->type == 'seller_profile') {
-								drupal_add_js(array(
-									'SELLER_PROFILE_LAT' => $vars['node']->field_location[LANGUAGE_NONE][0]['lat'],
-									'SELLER_PROFILE_LON' => $vars['node']->field_location[LANGUAGE_NONE][0]['lon'],
-								), 'setting');
-								drupal_add_js('https://maps.googleapis.com/maps/api/js?sensor=false', 'external');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.fancybox.pack.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.unveil.min.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.ajaxcart.js');
@@ -216,11 +211,6 @@ function rmshoploop_preprocess_node(&$vars) {
 		}
 	}
 	else if($vars['node']->type == 'commercial_profile') {
-								drupal_add_js(array(
-									'COMMERCIAL_PROFILE_LAT' => $vars['node']->field_location[LANGUAGE_NONE][0]['lat'],
-									'COMMERCIAL_PROFILE_LON' => $vars['node']->field_location[LANGUAGE_NONE][0]['lon'],
-								), 'setting');
-								drupal_add_js('https://maps.googleapis.com/maps/api/js?sensor=false', 'external');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.fancybox.pack.js');
                 drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/commercial-profile.js');
 	}
