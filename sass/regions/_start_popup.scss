@@ -22,40 +22,71 @@
         z-index: 9999;
         position: absolute;
         background: $white;
-        left: 50%;
-        top: 88px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 60px;
+        @include bp(mobile-ls-neg) {
+                top: 15px;
+            }
         @include border-radius(2px);
         @include box-shadow(rgba(0, 0, 0, 0.3) 9px 8px 22px -6px);
-        width: 776px;
-        margin-left: -388px;
+        width: 97%;
+        max-width: 776px;
+         
         
         .header {
             height: 156px;
+            @include bp(mobile-ls-neg) {
+                height: 69px;
+                text-align: center;
+            }
             background: url(../images/popup_header.jpg) 0 0 no-repeat;
+            background-size: cover;
            
             .logo {
                 margin-top: 34px;
+                @include bp(mobile-ls-neg) {
+                    width: 130px;
+                    margin-top: 12px;
+                }
             }
         }
         
         .content {
             @include box-sizing (border-box);
             padding: 30px 60px 60px 60px;
+            @include bp(mobile-ls-neg) {
+                padding: 15px 15px 0px 15px;
+                
+                .row {
+                    margin-bottom: 10px;
+                }
+            }
         
             .intro {
                 font-size: 16px;
                 line-height: 24px;
                 margin-bottom: 20px;
+                @include bp(mobile-ls-neg) {
+                   font-size: 13px;
+                    line-height: 19px;
+                    margin-bottom: 0px;
+                }
             }
             
             h1 {
                 text-transform: none;
                 font-size: 28px;
+                @include bp(mobile-ls-neg) {
+                   font-size: 21px;
+                }
                 
             }
             
             #regiomino-geolocation-region-entry {
-                width: 324px;
+                max-width: 324px;
+                width: 100%;
                 margin: 0 auto;
             }
             
@@ -82,7 +113,7 @@
             border-top: 1px solid #dadada;
             
             a {
-                font-size: 12px;
+                font-size: 11px;
                 margin:  0 10px;
                 text-transform: uppercase;
                 font-weight: 600;
@@ -90,7 +121,7 @@
                 
                 &:hover,
                 &:focus {
-                    color: $brand-green;
+                    color: $heading-black;
                 }
             }
         }
