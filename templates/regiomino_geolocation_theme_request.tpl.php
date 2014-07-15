@@ -19,9 +19,12 @@ sich für Ihre Stadt!', '#', array('external' => TRUE, 'attributes' => array('id
         </div>
     </div>
     <div class="footer">
-        <?php echo l("So funktioniert's", "hilfe"); ?> &bull;
-        <?php echo l("Über uns", "hilfe"); ?> &bull;
-        <?php echo l("Impressum", "hilfe/impressum"); ?>
+        <?php echo l("Einfach einkaufen", "seite/einfach-einkaufen"); ?> &bull;
+        <?php echo l("Über uns", "seite/über-uns"); ?> &bull;
+        <?php echo l("Registrieren", "seite/jetzt-mitmachen"); ?> &bull;
+        <?php echo l("Impressum", "seite/impressum"); ?> &bull;
+        <?php echo l("Kontakt", "inhalt/kontakt"); ?> &bull;
+        <?php echo l("Login", "user/login", array('query' => array('destination' => 'user'))); ?>
     </div>
 </div>
 

@@ -28,7 +28,7 @@
     
     jQuery(document).ready(function($) {
        $("ul.countdown").jCounter({
-		date: "4 july 2014 00:05:00",
+		date: "11 july 2014 00:05:00",
 		timezone: "Europe/Berlin",
 		format: "dd:hh:mm:ss",
 		twoDigits: 'on',
