@@ -1,0 +1,1 @@
+<div class="sixteen columns"><?php echo $node->body[LANGUAGE_NONE][0]['value']; ?></div>

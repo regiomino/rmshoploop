@@ -24,7 +24,7 @@ sich für Ihre Stadt!', '#', array('external' => TRUE, 'attributes' => array('id
         <?php echo l("Registrieren", "seite/jetzt-mitmachen"); ?> &bull;
         <?php echo l("Impressum", "seite/impressum"); ?> &bull;
         <?php echo l("Kontakt", "inhalt/kontakt"); ?> &bull;
-        <?php echo l("Login", "user/login", array('query' => array('destination' => 'user'))); ?>
+        <?php echo l("Login", "user/register", array('query' => array('destination' => 'user'))); ?>
     </div>
 </div>
 
