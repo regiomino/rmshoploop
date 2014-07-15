@@ -11,17 +11,17 @@
             </p>
         </div>
         <div class="row delivery">
-            <h1>Bitte wählen Sie Ihr Liefergebiet</h1>
+            <h1>Bitte wählen Sie Ihren Marktplatz</h1>
             
             <?php  echo $vars['form_zipcode']; ?>
-            <p class="callout">Ihre Region ist noch nicht dabei? <a href="#"> Bewerben Sie
-sich für Ihre Stadt!</a> </p>
+            <!--<p class="callout">Ihre Region ist noch nicht dabei? <a href="#"> Bewerben Sie
+sich für Ihre Stadt!</a> </p>-->
         </div>
     </div>
     <div class="footer">
-        <a href="#"> So funktioniert´s</a> &bull;
-        <a href="#"> Über uns</a> &bull;
-        <a href="#"> Impressum</a>
+        <?php echo l("So funktioniert's", "hilfe"); ?> &bull;
+        <?php echo l("Über uns", "hilfe"); ?> &bull;
+        <?php echo l("Impressum", "hilfe/impressum"); ?>
     </div>
 </div>
 

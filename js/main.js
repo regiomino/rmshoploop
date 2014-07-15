@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
-    
+
+	$('#messages').fancybox();
+
  /*
  * erstes Element im User Menu entfernen
  */
