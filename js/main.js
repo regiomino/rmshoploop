@@ -1,6 +1,33 @@
 jQuery(document).ready(function($) {
 
-	$('#messages').fancybox();
+ /*
+ * Bewerben für Region im Popup
+ */
+ 
+	$('#region-request').click(function() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(geolocationSuccessFunction, geolocationErrorFunction);
+		}
+		return false;
+	});
+	
+	function geolocationSuccessFunction(position) {
+		var data = new Object;
+		data['lat'] = position.coords.latitude;
+		data['lng'] = position.coords.longitude;
+		data['time'] = position.timestamp;
+		var callback_url = Drupal.settings.basePath + 'region-request';
+		$.ajax({
+			url: callback_url,
+			type: 'POST',
+			data: data,
+		});
+		alert('Vielen Dank für Ihr Interesse an Regiomino. Wir haben Ihren Standort gespeichert und werden alle Anstrengungen unternehmen um bald auch Produkte aus Ihrer Region anbieten zu können.');
+	}
+	
+	function geolocationErrorFunction() {
+		alert('Bitte erlauben Sie Ihrem Browser Ihren Standort freizugeben');
+	}
 
  /*
  * erstes Element im User Menu entfernen
