@@ -225,6 +225,15 @@ function rmshoploop_preprocess_node(&$vars) {
 		drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.fancybox.pack.js');
 		drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/commercial-profile.js');
 	}
+	else if($vars['node']->type == 'group_profile') {
+		drupal_add_js(array(
+			'GROUP_PROFILE_LAT' => $vars['node']->field_location[LANGUAGE_NONE][0]['lat'],
+			'GROUP_PROFILE_LON' => $vars['node']->field_location[LANGUAGE_NONE][0]['lon'],
+		), 'setting');
+		drupal_add_js('https://maps.googleapis.com/maps/api/js?sensor=false', 'external');
+		drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/jquery.fancybox.pack.js');
+		drupal_add_js(drupal_get_path('theme', 'rmshoploop') . '/js/group-profile.js');
+	}
 }
 
 function rmshoploop_theme() {
